@@ -1,7 +1,7 @@
 const tahapan = [
   { sesi: "Sesi 1", judul: "Alat dan folder siap", selesai: true },
-  { sesi: "Sesi 2", judul: "Proyek jalan di laptop, lalu simpan ke GitHub", selesai: false },
-  { sesi: "Sesi 3", judul: "Tayang online lewat Vercel", selesai: false },
+  { sesi: "Sesi 2", judul: "Proyek jalan di laptop, lalu simpan ke GitHub", selesai: true },
+  { sesi: "Sesi 3", judul: "Tayang online lewat Vercel", selesai: true },
   { sesi: "Sesi 4", judul: "Database Supabase dan daftar gerbang", selesai: false },
   { sesi: "Sesi 5", judul: "Login Google dan pasang di HP", selesai: false },
 ];
