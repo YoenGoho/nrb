@@ -1,6 +1,9 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import { connection } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/server";
+import { TombolMasukGoogle } from "@/app/komponen/TombolMasukGoogle";
+import { TombolKeluar } from "@/app/komponen/TombolKeluar";
 
 const tahapan = [
   { sesi: "Sesi 1", judul: "Alat dan folder siap", selesai: true },
@@ -24,10 +27,49 @@ function formatSta(meter: number) {
   return `${km}+${String(sisa).padStart(3, "0")}`;
 }
 
+// Tampilkan tombol masuk, atau nama pengguna kalau sudah login
+async function StatusMasuk() {
+  await connection();
+
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getClaims();
+  const pengguna = data?.claims;
+
+  if (!pengguna) {
+    return (
+      <div className="mt-6 flex flex-wrap items-center gap-3">
+        <TombolMasukGoogle />
+        <span className="text-sm text-[#C9D3E3]">
+          Masuk untuk membuka halaman pencatatan.
+        </span>
+      </div>
+    );
+  }
+
+  const nama =
+    (pengguna.user_metadata as { full_name?: string } | undefined)?.full_name ??
+    pengguna.email ??
+    "Pengguna";
+
+  return (
+    <div className="mt-6 flex flex-wrap items-center gap-3">
+      <span className="text-sm text-[#E3E8F0]">Masuk sebagai {nama}</span>
+      <Link
+        href="/catat"
+        className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-[#14213D]"
+      >
+        Buka halaman catat
+      </Link>
+      <TombolKeluar />
+    </div>
+  );
+}
+
 // Baca tabel gerbang dari Supabase setiap kali halaman dibuka
 async function DaftarGerbang() {
   await connection();
 
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("gerbang")
     .select("id, nama, jenis, sta_m")
@@ -73,6 +115,11 @@ export default function Home() {
             Aplikasi pencatatan inspeksi dan pemeliharaan jalan tol, mulai dari
             ruas Tomang sampai Bitung.
           </p>
+          <Suspense
+            fallback={<p className="mt-6 text-sm text-[#C9D3E3]">Memeriksa status masuk...</p>}
+          >
+            <StatusMasuk />
+          </Suspense>
         </div>
       </section>
 
