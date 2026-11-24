@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "NRB, Nugroho Road Bridge",
   description: "Aplikasi pencatatan inspeksi dan pemeliharaan jalan tol",
+};
+
+// Warna bilah atas HP saat aplikasi dibuka
+export const viewport: Viewport = {
+  themeColor: "#14213D",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
