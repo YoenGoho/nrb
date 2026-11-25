@@ -14,6 +14,14 @@ export type BarisSesi = {
 export const KOLOM_SESI =
   "id, tanggal, sta_awal_m, sta_akhir_m, arah, status, jenis_sesi, rencana_selesai";
 
+// Kebiasaan lapangan: "sesi KM 18 sampai 20" berarti sampai ujung KM 20, yaitu 20+999.
+// Database tetap menyimpan KM akhir apa adanya (20000), tafsirannya dilakukan di sini.
+export const PANJANG_SATU_KM_TERAKHIR = 999;
+
+export function batasAkhirSesi(staAkhirM: number) {
+  return staAkhirM + PANJANG_SATU_KM_TERAKHIR;
+}
+
 // Tanggal hari ini menurut Waktu Indonesia Barat, format 2026-11-25
 export function hariIniWib() {
   return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Jakarta" });

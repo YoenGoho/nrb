@@ -1,4 +1,5 @@
 import { formatSta } from "@/lib/sta";
+import { batasAkhirSesi } from "@/lib/inspeksi";
 
 export type JenisRingkas = { nama: string; kategori: string };
 
@@ -81,11 +82,11 @@ export function belumDiukur(t: Pick<BarisTemuan, "panjang_m" | "lebar_m">) {
 }
 
 // Temuan di luar rentang KM sesinya.
-// Rentang sesi dibaca persis sesuai patok: sesi KM 18 sampai 20 mencakup 18+000 sampai 20+000.
+// Sesi KM 18 sampai 20 mencakup 18+000 sampai 20+999, sesuai kebiasaan lapangan.
 // Temuan rentang dianggap di luar kalau salah satu ujungnya keluar dari rentang sesi.
 export function diLuarRentang(t: Pick<BarisTemuan, "inspeksi" | "sta_awal_m" | "sta_akhir_m">) {
   const sesi = Array.isArray(t.inspeksi) ? t.inspeksi[0] : t.inspeksi;
   if (!sesi) return false;
   const ujungAkhir = t.sta_akhir_m ?? t.sta_awal_m;
-  return t.sta_awal_m < sesi.sta_awal_m || ujungAkhir > sesi.sta_akhir_m;
+  return t.sta_awal_m < sesi.sta_awal_m || ujungAkhir > batasAkhirSesi(sesi.sta_akhir_m);
 }
