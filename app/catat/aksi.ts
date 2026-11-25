@@ -6,6 +6,8 @@ import { createClient } from "@/lib/supabase/server";
 import { keMeter } from "@/lib/sta";
 import { tujuanAman } from "@/lib/param";
 import { catatRiwayat } from "@/lib/riwayat";
+import { KATEGORI_LAIN, rapikanNama, seragamkanNama } from "@/lib/temuan";
+import { PILIHAN_LAINNYA } from "./IsianTemuan";
 
 // Server Action adalah fungsi yang ditulis di sini tetapi dijalankan di server
 // ketika sebuah form dikirim. Isian form masuk lewat FormData.
@@ -34,12 +36,10 @@ function perbaruiHalaman() {
   revalidatePath("/riwayat", "layout");
 }
 
-// Kode 23505 dari database artinya melanggar aturan unik.
-// Di NRB satu-satunya aturan unik pada inspeksi adalah satu sesi berjalan per pengguna.
-const KODE_UNIK = "23505";
-
 type IsianTemuan = {
-  jenis_temuan_id: number;
+  jenis_temuan_id: number | null;
+  jenis_lain: string | null;
+  kategori_lain: string | null;
   tingkat: string;
   tipe_lokasi: string;
   sta_awal_m: number;
@@ -52,9 +52,73 @@ type IsianTemuan = {
   catatan: string | null;
 };
 
+type KlienSupabase = Awaited<ReturnType<typeof createClient>>;
+
+// Hasil pembacaan jenis: dari katalog, atau ketikan manual.
+// cocokKatalog terisi kalau ketikan manual ternyata sama dengan nama di katalog.
+type HasilJenis = {
+  jenis_temuan_id: number | null;
+  jenis_lain: string | null;
+  kategori_lain: string | null;
+  cocokKatalog: { diketik: string; nama: string } | null;
+};
+
+async function bacaJenis(fd: FormData, asal: string, supabase: KlienSupabase): Promise<HasilJenis> {
+  const pilihanJenis = teks(fd, "jenis_temuan_id");
+  if (pilihanJenis === null) {
+    kembaliDenganGalat(asal, "Jenis temuan wajib dipilih.");
+  }
+
+  // Jalur katalog: nilai radionya nomor jenis
+  if (pilihanJenis !== PILIHAN_LAINNYA) {
+    const id = Number(pilihanJenis);
+    if (!Number.isInteger(id) || id <= 0) {
+      kembaliDenganGalat(asal, "Jenis temuan tidak dikenali.");
+    }
+    return { jenis_temuan_id: id, jenis_lain: null, kategori_lain: null, cocokKatalog: null };
+  }
+
+  // Jalur manual
+  const diketik = teks(fd, "jenis_lain");
+  const kategori = teks(fd, "kategori_lain");
+  if (diketik === null || diketik.length < 2) {
+    kembaliDenganGalat(asal, "Pilihan Lainnya: nama jenis wajib diketik, paling sedikit 2 huruf.");
+  }
+  if (diketik.length > 80) {
+    kembaliDenganGalat(asal, "Nama jenis paling panjang 80 huruf.");
+  }
+
+  const { data: katalog } = await supabase.from("jenis_temuan").select("id, nama, kategori");
+  const daftar = katalog ?? [];
+
+  // Penjaga salah ketik lapis 2: kalau namanya sudah ada di katalog, pakai yang di katalog.
+  // Kalau nama yang sama ada di beberapa kategori, utamakan kategori yang dipilih pengguna.
+  const kembar = daftar.filter((j) => seragamkanNama(j.nama) === seragamkanNama(diketik));
+  const pilihanKembar = kembar.find((j) => j.kategori === kategori) ?? kembar[0];
+  if (pilihanKembar) {
+    return {
+      jenis_temuan_id: pilihanKembar.id,
+      jenis_lain: null,
+      kategori_lain: null,
+      cocokKatalog: { diketik, nama: `${pilihanKembar.nama} (${pilihanKembar.kategori})` },
+    };
+  }
+
+  // Kategori harus salah satu kategori katalog, atau Lain-lain
+  const kategoriSah = new Set([...daftar.map((j) => j.kategori), KATEGORI_LAIN]);
+  if (kategori === null || !kategoriSah.has(kategori)) {
+    kembaliDenganGalat(asal, "Pilihan Lainnya: kategori wajib dipilih.");
+  }
+
+  return { jenis_temuan_id: null, jenis_lain: rapikanNama(diketik), kategori_lain: kategori, cocokKatalog: null };
+}
+
 // Membaca dan memeriksa isian temuan. Dipakai bersama oleh tambah dan ubah.
-function bacaIsianTemuan(fd: FormData, asal: string): IsianTemuan {
-  const jenisId = angka(fd, "jenis_temuan_id");
+async function bacaIsianTemuan(
+  fd: FormData,
+  asal: string,
+  supabase: KlienSupabase,
+): Promise<{ isian: IsianTemuan; cocokKatalog: HasilJenis["cocokKatalog"] }> {
   const tingkat = teks(fd, "tingkat");
   const tipeLokasi = teks(fd, "tipe_lokasi") ?? "Titik";
   const arah = teks(fd, "arah");
@@ -62,8 +126,8 @@ function bacaIsianTemuan(fd: FormData, asal: string): IsianTemuan {
   const kmAwal = angka(fd, "km_awal");
   const mAwal = angka(fd, "m_awal") ?? 0;
 
-  if (jenisId === null || tingkat === null || arah === null || lajur === null) {
-    kembaliDenganGalat(asal, "Jenis, tingkat, arah, dan lajur wajib dipilih.");
+  if (tingkat === null || arah === null || lajur === null) {
+    kembaliDenganGalat(asal, "Tingkat, arah, dan lajur wajib dipilih.");
   }
   if (kmAwal === null) {
     kembaliDenganGalat(asal, "KM lokasi wajib diisi.");
@@ -95,8 +159,10 @@ function bacaIsianTemuan(fd: FormData, asal: string): IsianTemuan {
     kembaliDenganGalat(asal, "Jumlah harus bilangan bulat, paling kecil 1.");
   }
 
-  return {
-    jenis_temuan_id: jenisId,
+  const { cocokKatalog, ...jenis } = await bacaJenis(fd, asal, supabase);
+
+  const isian: IsianTemuan = {
+    ...jenis,
     tingkat,
     tipe_lokasi: tipeLokasi,
     sta_awal_m: staAwal,
@@ -108,6 +174,8 @@ function bacaIsianTemuan(fd: FormData, asal: string): IsianTemuan {
     jumlah,
     catatan: teks(fd, "catatan"),
   };
+
+  return { isian, cocokKatalog };
 }
 
 // =========================================================
@@ -130,6 +198,18 @@ export async function mulaiInspeksi(formData: FormData) {
   // memakai nilai bawaannya, yaitu tanggal hari ini.
   const tanggal = teks(formData, "tanggal");
 
+  const jenisSesi = teks(formData, "jenis_sesi") ?? "Harian";
+  if (jenisSesi !== "Harian" && jenisSesi !== "Berkala") {
+    kembaliDenganGalat("/catat", "Jenis sesi tidak dikenali.");
+  }
+  const rencanaSelesai = jenisSesi === "Berkala" ? teks(formData, "rencana_selesai") : null;
+  if (jenisSesi === "Berkala" && rencanaSelesai === null) {
+    kembaliDenganGalat("/catat", "Sesi Berkala wajib punya tanggal rencana selesai.");
+  }
+  if (rencanaSelesai !== null && tanggal !== null && rencanaSelesai < tanggal) {
+    kembaliDenganGalat("/catat", "Tanggal rencana selesai tidak boleh sebelum tanggal mulai.");
+  }
+
   const supabase = await createClient();
   const { data: baru, error } = await supabase
     .from("inspeksi")
@@ -138,6 +218,8 @@ export async function mulaiInspeksi(formData: FormData) {
       sta_awal_m: keMeter(kmAwal, 0),
       sta_akhir_m: keMeter(kmAkhir, 0),
       arah,
+      jenis_sesi: jenisSesi,
+      rencana_selesai: rencanaSelesai,
       pic_atasan: teks(formData, "pic_atasan"),
       cuaca: teks(formData, "cuaca"),
       diinput_dari: teks(formData, "diinput_dari") ?? "Lapangan",
@@ -146,16 +228,20 @@ export async function mulaiInspeksi(formData: FormData) {
     .single();
 
   if (error) {
-    if (error.code === KODE_UNIK) {
-      kembaliDenganGalat("/catat", "Masih ada sesi inspeksi yang berjalan. Tutup dulu sebelum memulai sesi baru.");
-    }
     kembaliDenganGalat("/catat", `Gagal memulai inspeksi: ${error.message}`);
   }
 
-  await catatRiwayat(supabase, "inspeksi", baru.id, "Inspeksi dimulai");
+  await catatRiwayat(
+    supabase,
+    "inspeksi",
+    baru.id,
+    "Inspeksi dimulai",
+    jenisSesi === "Berkala" ? `Berkala, rencana selesai ${rencanaSelesai}` : "Harian",
+  );
 
   perbaruiHalaman();
-  redirect("/catat");
+  // Langsung ke halaman kerja sesi yang baru dibuat
+  redirect(`/riwayat/${baru.id}`);
 }
 
 export async function tutupInspeksi(formData: FormData) {
@@ -198,9 +284,6 @@ export async function bukaKembaliInspeksi(formData: FormData) {
     .eq("status", "Selesai");
 
   if (error) {
-    if (error.code === KODE_UNIK) {
-      kembaliDenganGalat(asal, "Masih ada sesi lain yang berjalan. Tutup sesi itu dulu sebelum membuka kembali sesi ini.");
-    }
     kembaliDenganGalat(asal, `Gagal membuka kembali: ${error.message}`);
   }
 
@@ -213,7 +296,7 @@ export async function bukaKembaliInspeksi(formData: FormData) {
   );
 
   perbaruiHalaman();
-  redirect("/catat");
+  redirect(`/riwayat/${inspeksiId}`);
 }
 
 // =========================================================
@@ -228,9 +311,10 @@ export async function tambahTemuan(formData: FormData) {
     kembaliDenganGalat("/catat", "Sesi inspeksi tidak dikenali.");
   }
   const asal = `/catat/temuan?inspeksi=${inspeksiId}&kembali=${encodeURIComponent(kembali)}`;
-  const isian = bacaIsianTemuan(formData, asal);
 
   const supabase = await createClient();
+  const { isian, cocokKatalog } = await bacaIsianTemuan(formData, asal, supabase);
+
   const { data: sesi } = await supabase
     .from("inspeksi")
     .select("id, status")
@@ -253,6 +337,16 @@ export async function tambahTemuan(formData: FormData) {
     kembaliDenganGalat(asal, `Gagal menyimpan temuan: ${error.message}`);
   }
 
+  if (cocokKatalog) {
+    await catatRiwayat(
+      supabase,
+      "temuan",
+      baru.id,
+      "Jenis dicocokkan dengan katalog",
+      `Diketik "${cocokKatalog.diketik}", disimpan sebagai ${cocokKatalog.nama}`,
+    );
+  }
+
   if (setelahTutup) {
     await catatRiwayat(
       supabase,
@@ -271,7 +365,9 @@ export async function tambahTemuan(formData: FormData) {
     const q = new URLSearchParams({
       inspeksi: String(inspeksiId),
       kembali,
-      jenis: String(isian.jenis_temuan_id),
+      jenis: isian.jenis_temuan_id !== null ? String(isian.jenis_temuan_id) : PILIHAN_LAINNYA,
+      ...(isian.jenis_lain ? { jenis_lain: isian.jenis_lain } : {}),
+      ...(isian.kategori_lain ? { kategori_lain: isian.kategori_lain } : {}),
       tingkat: isian.tingkat,
       arah: isian.arah,
       lajur: isian.lajur,
@@ -284,7 +380,9 @@ export async function tambahTemuan(formData: FormData) {
 }
 
 const NAMA_KOLOM: Record<keyof IsianTemuan, string> = {
-  jenis_temuan_id: "jenis",
+  jenis_temuan_id: "jenis katalog",
+  jenis_lain: "jenis manual",
+  kategori_lain: "kategori manual",
   tingkat: "tingkat",
   tipe_lokasi: "bentuk lokasi",
   sta_awal_m: "STA awal",
@@ -305,12 +403,13 @@ export async function ubahTemuan(formData: FormData) {
     kembaliDenganGalat(kembali, "Temuan tidak dikenali.");
   }
   const asal = `/catat/temuan/${temuanId}?kembali=${encodeURIComponent(kembali)}`;
-  const isian = bacaIsianTemuan(formData, asal);
 
   const supabase = await createClient();
+  const { isian, cocokKatalog } = await bacaIsianTemuan(formData, asal, supabase);
+
   const { data: lama } = await supabase
     .from("temuan")
-    .select("jenis_temuan_id, tingkat, tipe_lokasi, sta_awal_m, sta_akhir_m, arah, lajur, panjang_m, lebar_m, jumlah, catatan")
+    .select("jenis_temuan_id, jenis_lain, kategori_lain, tingkat, tipe_lokasi, sta_awal_m, sta_akhir_m, arah, lajur, panjang_m, lebar_m, jumlah, catatan")
     .eq("id", temuanId)
     .maybeSingle();
 
@@ -330,7 +429,10 @@ export async function ubahTemuan(formData: FormData) {
     const { data: jenis } = await supabase
       .from("jenis_temuan")
       .select("id, nama")
-      .in("id", [lama.jenis_temuan_id, isian.jenis_temuan_id]);
+      .in(
+        "id",
+        [lama.jenis_temuan_id, isian.jenis_temuan_id].filter((v): v is number => typeof v === "number"),
+      );
     for (const j of jenis ?? []) namaJenisMenurutId.set(j.id, j.nama);
   }
   const tampil = (k: keyof IsianTemuan, v: unknown) =>
@@ -351,6 +453,15 @@ export async function ubahTemuan(formData: FormData) {
   }
 
   await catatRiwayat(supabase, "temuan", temuanId, "Temuan diubah", perubahan.join("; "));
+  if (cocokKatalog) {
+    await catatRiwayat(
+      supabase,
+      "temuan",
+      temuanId,
+      "Jenis dicocokkan dengan katalog",
+      `Diketik "${cocokKatalog.diketik}", disimpan sebagai ${cocokKatalog.nama}`,
+    );
+  }
 
   perbaruiHalaman();
   redirect(kembali);

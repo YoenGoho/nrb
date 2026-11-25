@@ -4,85 +4,111 @@ import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { formatKm } from "@/lib/sta";
 import { satu } from "@/lib/param";
-import { KOLOM_TEMUAN, type BarisTemuan } from "@/lib/temuan";
+import { KOLOM_SESI, keteranganWaktuSesi, lewatWaktu, type BarisSesi } from "@/lib/inspeksi";
+import { KOLOM_TEMUAN, belumDiukur, diLuarRentang, type BarisTemuan } from "@/lib/temuan";
 import { KartuTemuan } from "@/app/komponen/KartuTemuan";
+import { PenandaSesi } from "@/app/komponen/PenandaSesi";
 
-type BarisInspeksi = {
-  id: number;
-  tanggal: string;
-  sta_awal_m: number;
-  sta_akhir_m: number;
-  arah: string;
-  status: string;
-  temuan: { count: number }[];
-};
+type SesiDenganJumlah = BarisSesi & { temuan: { count: number }[] };
 
-async function DaftarBelumDiukur() {
-  const supabase = await createClient();
-  const { data } = await supabase
-    .from("temuan")
-    .select(KOLOM_TEMUAN)
-    .or("panjang_m.is.null,lebar_m.is.null")
-    .order("dibuat_pada", { ascending: false });
+// Daftar penyaring yang bisa ditampilkan lewat alamat /riwayat?tampil=...
+const PENYARING = {
+  "belum-diukur": {
+    judul: "Temuan belum diukur",
+    keterangan: "Temuan yang panjang atau lebarnya masih kosong. Tekan Ubah untuk mengisinya.",
+    kosong: "Semua temuan sudah diukur.",
+    saring: belumDiukur,
+  },
+  "luar-rentang": {
+    judul: "Temuan di luar rentang sesi",
+    keterangan:
+      "STA temuan berada di luar rentang KM sesinya. Periksa apakah memang begitu di lapangan, " +
+      "atau temuan masuk ke sesi yang salah.",
+    kosong: "Tidak ada temuan di luar rentang sesinya.",
+    saring: diLuarRentang,
+  },
+} as const;
 
-  const temuan = (data ?? []) as unknown as BarisTemuan[];
+type KunciPenyaring = keyof typeof PENYARING;
 
-  return (
-    <div>
-      <Link href="/riwayat" className="text-sm text-[#4A5568] underline">Kembali ke semua sesi</Link>
-      <h2 className="mt-4 text-lg font-semibold">Temuan belum diukur ({temuan.length})</h2>
-      <p className="mt-1 text-sm text-[#4A5568]">
-        Temuan yang panjang atau lebarnya masih kosong. Tekan Ubah untuk mengisinya.
-      </p>
-      {temuan.length === 0 ? (
-        <p className="mt-4 text-sm text-[#4A5568]">Semua temuan sudah diukur.</p>
-      ) : (
-        <ul className="mt-3 flex flex-col gap-2">
-          {temuan.map((t) => (
-            <KartuTemuan key={t.id} t={t} kembali="/riwayat?tampil=belum-diukur" />
-          ))}
-        </ul>
-      )}
-    </div>
-  );
+function adalahPenyaring(nilai: string | undefined): nilai is KunciPenyaring {
+  return nilai === "belum-diukur" || nilai === "luar-rentang";
 }
 
 async function DaftarSesi({ searchParams }: { searchParams: PageProps<"/riwayat">["searchParams"] }) {
   await connection();
   const sp = await searchParams;
-
-  if (satu(sp.tampil) === "belum-diukur") {
-    return <DaftarBelumDiukur />;
-  }
+  const tampil = satu(sp.tampil);
 
   const supabase = await createClient();
-  const [{ data }, { count: jumlahBelumDiukur }] = await Promise.all([
+  const [{ data: dataSesi }, { data: dataTemuan }] = await Promise.all([
     supabase
       .from("inspeksi")
-      .select("id, tanggal, sta_awal_m, sta_akhir_m, arah, status, temuan(count)")
+      .select(`${KOLOM_SESI}, temuan(count)`)
       .order("tanggal", { ascending: false })
       .order("dibuat_pada", { ascending: false }),
-    supabase
-      .from("temuan")
-      .select("id", { count: "exact", head: true })
-      .or("panjang_m.is.null,lebar_m.is.null"),
+    supabase.from("temuan").select(KOLOM_TEMUAN).order("dibuat_pada", { ascending: false }),
   ]);
 
-  const sesi = (data ?? []) as unknown as BarisInspeksi[];
-  // Sesi yang masih berjalan selalu di paling atas
-  const urut = [...sesi.filter((s) => s.status === "Berjalan"), ...sesi.filter((s) => s.status !== "Berjalan")];
+  const semuaTemuan = (dataTemuan ?? []) as unknown as BarisTemuan[];
+
+  // Tampilan penyaring: daftar temuan, bukan daftar sesi
+  if (adalahPenyaring(tampil)) {
+    const p = PENYARING[tampil];
+    const hasil = semuaTemuan.filter(p.saring);
+    return (
+      <div>
+        <Link href="/riwayat" className="mt-2 inline-block text-sm text-[#4A5568] underline">
+          Kembali ke semua sesi
+        </Link>
+        <h2 className="mt-4 text-lg font-semibold">{p.judul} ({hasil.length})</h2>
+        <p className="mt-1 text-sm text-[#4A5568]">{p.keterangan}</p>
+        {hasil.length === 0 ? (
+          <p className="mt-4 text-sm text-[#4A5568]">{p.kosong}</p>
+        ) : (
+          <ul className="mt-3 flex flex-col gap-2">
+            {hasil.map((t) => (
+              <KartuTemuan key={t.id} t={t} kembali={`/riwayat?tampil=${tampil}`} />
+            ))}
+          </ul>
+        )}
+      </div>
+    );
+  }
+
+  const sesi = (dataSesi ?? []) as unknown as SesiDenganJumlah[];
+  // Urutan: sesi berjalan yang lewat waktu, sesi berjalan lainnya, lalu sesi selesai
+  const urut = [
+    ...sesi.filter((s) => s.status === "Berjalan" && lewatWaktu(s)),
+    ...sesi.filter((s) => s.status === "Berjalan" && !lewatWaktu(s)),
+    ...sesi.filter((s) => s.status !== "Berjalan"),
+  ];
+
+  const jumlahBelumDiukur = semuaTemuan.filter(belumDiukur).length;
+  const jumlahLuarRentang = semuaTemuan.filter(diLuarRentang).length;
 
   return (
     <div>
-      {jumlahBelumDiukur ? (
-        <Link
-          href="/riwayat?tampil=belum-diukur"
-          className="mt-4 block rounded-xl border border-[#FCD34D] bg-[#FEF3C7] px-4 py-3 text-sm text-[#78350F]"
-        >
-          <span className="font-semibold">{jumlahBelumDiukur} temuan belum diukur.</span> Tekan untuk melihat
-          dan melengkapinya.
-        </Link>
-      ) : null}
+      <div className="mt-4 flex flex-col gap-2">
+        {jumlahLuarRentang > 0 ? (
+          <Link
+            href="/riwayat?tampil=luar-rentang"
+            className="block rounded-xl border border-[#FDBA74] bg-[#FFEDD5] px-4 py-3 text-sm text-[#7C2D12]"
+          >
+            <span className="font-semibold">{jumlahLuarRentang} temuan di luar rentang sesinya.</span>{" "}
+            Tekan untuk memeriksa.
+          </Link>
+        ) : null}
+        {jumlahBelumDiukur > 0 ? (
+          <Link
+            href="/riwayat?tampil=belum-diukur"
+            className="block rounded-xl border border-[#FCD34D] bg-[#FEF3C7] px-4 py-3 text-sm text-[#78350F]"
+          >
+            <span className="font-semibold">{jumlahBelumDiukur} temuan belum diukur.</span> Tekan untuk
+            melihat dan melengkapinya.
+          </Link>
+        ) : null}
+      </div>
 
       {urut.length === 0 ? (
         <p className="mt-4 text-sm text-[#4A5568]">
@@ -94,25 +120,18 @@ async function DaftarSesi({ searchParams }: { searchParams: PageProps<"/riwayat"
             <li key={s.id}>
               <Link
                 href={`/riwayat/${s.id}`}
-                className="flex items-center justify-between gap-3 rounded-xl border border-[#DCE2EA] bg-white px-4 py-3"
+                className="flex items-start justify-between gap-3 rounded-xl border border-[#DCE2EA] bg-white px-4 py-3"
               >
-                <span>
+                <span className="min-w-0">
                   <span className="block text-base font-semibold">
-                    {s.tanggal}, {formatKm(s.sta_awal_m)} sampai {formatKm(s.sta_akhir_m)}
+                    {formatKm(s.sta_awal_m)} sampai {formatKm(s.sta_akhir_m)}
                   </span>
+                  <span className="block text-sm text-[#4A5568]">{keteranganWaktuSesi(s)}</span>
                   <span className="block text-sm text-[#4A5568]">
                     {s.arah} | {s.temuan?.[0]?.count ?? 0} temuan
                   </span>
                 </span>
-                <span
-                  className={
-                    s.status === "Berjalan"
-                      ? "rounded-full bg-[#DCFCE7] px-3 py-1 text-xs font-semibold text-[#14532D]"
-                      : "rounded-full bg-[#EEF1F5] px-3 py-1 text-xs font-semibold text-[#2D3B52]"
-                  }
-                >
-                  {s.status}
-                </span>
+                <PenandaSesi s={s} />
               </Link>
             </li>
           ))}

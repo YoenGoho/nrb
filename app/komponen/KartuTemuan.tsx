@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { belumDiukur, kodeTemuan, lokasiTemuan, namaJenis, type BarisTemuan } from "@/lib/temuan";
+import { belumDiukur, diLuarRentang, kodeTemuan, lokasiTemuan, namaJenis, type BarisTemuan } from "@/lib/temuan";
 
 // Satu kartu temuan, dipakai di halaman catat, riwayat, dan daftar belum diukur
 export function KartuTemuan({ t, kembali }: { t: BarisTemuan; kembali: string }) {
@@ -10,7 +10,7 @@ export function KartuTemuan({ t, kembali }: { t: BarisTemuan; kembali: string })
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="font-mono text-xs text-[#4A5568]">{kodeTemuan(t.id, t.dibuat_pada)}</p>
-          <p className="text-base font-semibold">{namaJenis(t.jenis_temuan)}</p>
+          <p className="text-base font-semibold">{namaJenis(t)}</p>
           <p className="text-sm text-[#4A5568]">
             {lokasiTemuan(t)} | {t.lajur} | {t.arah}
           </p>
@@ -24,6 +24,16 @@ export function KartuTemuan({ t, kembali }: { t: BarisTemuan; kembali: string })
             {belumDiukur(t) ? (
               <span className="rounded-full bg-[#FEF3C7] px-2 py-0.5 text-xs font-semibold text-[#78350F]">
                 Belum diukur
+              </span>
+            ) : null}
+            {diLuarRentang(t) ? (
+              <span className="rounded-full bg-[#FFEDD5] px-2 py-0.5 text-xs font-semibold text-[#7C2D12]">
+                Di luar rentang sesi
+              </span>
+            ) : null}
+            {t.jenis_lain ? (
+              <span className="rounded-full bg-[#F3E8FF] px-2 py-0.5 text-xs font-semibold text-[#581C87]">
+                Jenis diketik manual, {t.kategori_lain}
               </span>
             ) : null}
             {t.ditambahkan_setelah_tutup ? (

@@ -9,6 +9,8 @@ Dijalankan berurutan lewat SQL Editor di dashboard Supabase, satu berkas satu ka
 | 002_jenis_temuan.sql | Katalog 72 jenis temuan | 25 November 2026 |
 | 003_inspeksi_temuan.sql | Tabel inspeksi dan temuan beserta aturan Row Level Security | 25 November 2026 |
 | 004_jumlah_riwayat.sql | Kolom jumlah, penanda temuan susulan, satu sesi berjalan, tabel riwayat_aksi | 25 November 2026 |
+| 005_jenis_manual.sql | Jenis temuan yang diketik manual beserta kategorinya | 25 November 2026 |
+| 006_sesi_bersamaan.sql | Beberapa sesi boleh berjalan bersamaan, jenis sesi Harian dan Berkala | 25 November 2026 |
 
 Aturan yang dipakai di seluruh naskah:
 

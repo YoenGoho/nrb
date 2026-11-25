@@ -4,7 +4,9 @@ import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { formatKm } from "@/lib/sta";
 import { formatWaktu, satu } from "@/lib/param";
-import { KOLOM_TEMUAN, belumDiukur, type BarisTemuan } from "@/lib/temuan";
+import { KOLOM_TEMUAN, belumDiukur, diLuarRentang, type BarisTemuan } from "@/lib/temuan";
+import { KOLOM_SESI, keteranganWaktuSesi, type BarisSesi } from "@/lib/inspeksi";
+import { PenandaSesi } from "@/app/komponen/PenandaSesi";
 import { KartuTemuan } from "@/app/komponen/KartuTemuan";
 import { DaftarRiwayatAksi, type BarisRiwayat } from "@/app/komponen/DaftarRiwayatAksi";
 import { bukaKembaliInspeksi, tutupInspeksi } from "@/app/catat/aksi";
@@ -23,17 +25,25 @@ async function DetailSesi({ params, searchParams }: {
   const { id } = await params;
   const sp = await searchParams;
   const galat = satu(sp.galat);
-  const saringBelumDiukur = satu(sp.saring) === "belum-diukur";
+  const saring = satu(sp.saring);
   const inspeksiId = Number(id);
 
   const supabase = await createClient();
-  const { data: sesi } = Number.isInteger(inspeksiId)
+  const { data: dataSesi } = Number.isInteger(inspeksiId)
     ? await supabase
         .from("inspeksi")
-        .select("id, tanggal, sta_awal_m, sta_akhir_m, arah, pic_atasan, cuaca, status, dibuat_pada, ditutup_pada")
+        .select(`${KOLOM_SESI}, pic_atasan, cuaca, dibuat_pada, ditutup_pada`)
         .eq("id", inspeksiId)
         .maybeSingle()
     : { data: null };
+
+  type SesiLengkap = BarisSesi & {
+    pic_atasan: string | null;
+    cuaca: string | null;
+    dibuat_pada: string;
+    ditutup_pada: string | null;
+  };
+  const sesi = dataSesi as SesiLengkap | null;
 
   if (!sesi) {
     return (
@@ -54,8 +64,14 @@ async function DetailSesi({ params, searchParams }: {
   ]);
 
   const semua = (daftar ?? []) as unknown as BarisTemuan[];
-  const temuan = saringBelumDiukur ? semua.filter(belumDiukur) : semua;
+  const temuan =
+    saring === "belum-diukur"
+      ? semua.filter(belumDiukur)
+      : saring === "luar-rentang"
+        ? semua.filter(diLuarRentang)
+        : semua;
   const jumlahBelumDiukur = semua.filter(belumDiukur).length;
+  const jumlahLuarRentang = semua.filter(diLuarRentang).length;
   const ditutup = sesi.status === "Selesai";
   const alamatIni = `/riwayat/${sesi.id}`;
 
@@ -73,7 +89,8 @@ async function DetailSesi({ params, searchParams }: {
             <p className="text-lg font-semibold">
               {formatKm(sesi.sta_awal_m)} sampai {formatKm(sesi.sta_akhir_m)}
             </p>
-            <p className="text-sm text-[#4A5568]">{sesi.tanggal} | {sesi.arah}</p>
+            <p className="text-sm text-[#4A5568]">{sesi.arah}</p>
+            <p className="text-sm text-[#4A5568]">{keteranganWaktuSesi(sesi)}</p>
             {sesi.pic_atasan ? <p className="text-sm text-[#4A5568]">PIC: {sesi.pic_atasan}</p> : null}
             {sesi.cuaca ? <p className="text-sm text-[#4A5568]">Cuaca: {sesi.cuaca}</p> : null}
             <p className="mt-2 text-xs text-[#4A5568]">Dimulai {formatWaktu(sesi.dibuat_pada)}</p>
@@ -81,15 +98,7 @@ async function DetailSesi({ params, searchParams }: {
               <p className="text-xs text-[#4A5568]">Ditutup {formatWaktu(sesi.ditutup_pada)}</p>
             ) : null}
           </div>
-          <span
-            className={
-              ditutup
-                ? "rounded-full bg-[#EEF1F5] px-3 py-1 text-xs font-semibold text-[#2D3B52]"
-                : "rounded-full bg-[#DCFCE7] px-3 py-1 text-xs font-semibold text-[#14532D]"
-            }
-          >
-            {sesi.status}
-          </span>
+          <PenandaSesi s={sesi} />
         </div>
 
         <div className="mt-4 flex flex-col gap-2">
@@ -123,17 +132,32 @@ async function DetailSesi({ params, searchParams }: {
         </div>
       </div>
 
-      <div className="mt-6 flex items-center justify-between gap-3">
-        <h2 className="text-lg font-semibold">Temuan ({semua.length})</h2>
-        {jumlahBelumDiukur > 0 ? (
-          <Link
-            href={saringBelumDiukur ? alamatIni : `${alamatIni}?saring=belum-diukur`}
-            className="text-sm font-semibold text-[#78350F] underline"
-          >
-            {saringBelumDiukur ? "Tampilkan semua" : `${jumlahBelumDiukur} belum diukur`}
-          </Link>
-        ) : null}
-      </div>
+      <h2 className="mt-6 text-lg font-semibold">Temuan ({semua.length})</h2>
+      {jumlahBelumDiukur > 0 || jumlahLuarRentang > 0 || saring ? (
+        <div className="mt-2 flex flex-wrap gap-2 text-sm">
+          {saring ? (
+            <Link href={alamatIni} className="rounded-full border border-[#DCE2EA] bg-white px-3 py-1 font-semibold">
+              Tampilkan semua
+            </Link>
+          ) : null}
+          {jumlahBelumDiukur > 0 && saring !== "belum-diukur" ? (
+            <Link
+              href={`${alamatIni}?saring=belum-diukur`}
+              className="rounded-full bg-[#FEF3C7] px-3 py-1 font-semibold text-[#78350F]"
+            >
+              {jumlahBelumDiukur} belum diukur
+            </Link>
+          ) : null}
+          {jumlahLuarRentang > 0 && saring !== "luar-rentang" ? (
+            <Link
+              href={`${alamatIni}?saring=luar-rentang`}
+              className="rounded-full bg-[#FFEDD5] px-3 py-1 font-semibold text-[#7C2D12]"
+            >
+              {jumlahLuarRentang} di luar rentang
+            </Link>
+          ) : null}
+        </div>
+      ) : null}
 
       {temuan.length === 0 ? (
         <p className="mt-2 text-sm text-[#4A5568]">Tidak ada temuan untuk ditampilkan.</p>

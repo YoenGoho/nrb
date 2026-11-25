@@ -1,10 +1,14 @@
 // Kumpulan isian temuan yang dipakai bersama oleh form tambah dan form ubah.
 // Semua pilihan memakai tombol radio yang didandani, tanpa JavaScript tambahan.
 
+import { KATEGORI_LAIN } from "@/lib/temuan";
+
 export type JenisKatalog = { id: number; kategori: string; nama: string; sering: boolean };
 
 export type NilaiAwal = {
   jenis_temuan_id?: number | null;
+  jenis_lain?: string | null;
+  kategori_lain?: string | null;
   tingkat?: string | null;
   tipe_lokasi?: string | null;
   sta_awal_m?: number | null;
@@ -16,6 +20,9 @@ export type NilaiAwal = {
   jumlah?: number | null;
   catatan?: string | null;
 };
+
+// Nilai khusus tombol "Lainnya". Bukan nomor katalog, jadi server tahu ini ketikan manual.
+export const PILIHAN_LAINNYA = "lainnya";
 
 const kotak = "rounded-xl border border-[#DCE2EA] bg-white px-3 py-2 text-base w-full";
 const label = "block text-xs font-semibold text-[#4A5568] mb-1";
@@ -54,10 +61,14 @@ export function IsianTemuan({ katalog, awal }: { katalog: JenisKatalog[]; awal: 
   const sering = katalog.filter((j) => j.sering);
   const lainnya = katalog.filter((j) => !j.sering);
   const kategoriUrut = Array.from(new Set(lainnya.map((j) => j.kategori)));
+  const semuaKategori = [...Array.from(new Set(katalog.map((j) => j.kategori))), KATEGORI_LAIN];
+  // Nama unik untuk saran ketik. Nama yang sama di dua kategori cukup muncul sekali.
+  const saranNama = Array.from(new Set(katalog.map((j) => j.nama)));
 
-  const jenisAwal = awal.jenis_temuan_id ?? null;
-  // Kalau jenis yang terpilih ada di daftar lain, daftar itu dibuka supaya pilihannya kelihatan
-  const bukaDaftarLain = jenisAwal !== null && lainnya.some((j) => j.id === jenisAwal);
+  const manual = Boolean(awal.jenis_lain);
+  const jenisAwal = manual ? null : (awal.jenis_temuan_id ?? null);
+  // Daftar lain dibuka kalau pilihan awal ada di dalamnya, atau kalau jenisnya ketikan manual
+  const bukaDaftarLain = manual || (jenisAwal !== null && lainnya.some((j) => j.id === jenisAwal));
 
   const tipeAwal = awal.tipe_lokasi ?? "Titik";
   const staAwal = pecahSta(awal.sta_awal_m);
@@ -82,7 +93,7 @@ export function IsianTemuan({ katalog, awal }: { katalog: JenisKatalog[]; awal: 
 
         <details className="mt-3 rounded-xl border border-[#DCE2EA] bg-white" open={bukaDaftarLain}>
           <summary className="cursor-pointer px-4 py-3 text-sm font-semibold">
-            Jenis lain, semua kategori
+            Jenis lain, semua kategori, atau ketik sendiri
           </summary>
           <div className="border-t border-[#DCE2EA] px-4 py-3">
             {kategoriUrut.map((kat) => (
@@ -103,6 +114,39 @@ export function IsianTemuan({ katalog, awal }: { katalog: JenisKatalog[]; awal: 
                 </div>
               </div>
             ))}
+
+            <div className="mt-2 rounded-xl border border-dashed border-[#9FB0C6] p-3">
+              <p className="mb-2 text-xs font-semibold text-[#4A5568]">Tidak ada di daftar</p>
+              <Radio nama="jenis_temuan_id" nilai={PILIHAN_LAINNYA} teks="Lainnya, ketik sendiri" terpilih={manual} />
+
+              <label className={`${label} mt-3`} htmlFor="jenis_lain">Nama jenis temuan</label>
+              <input
+                className={kotak}
+                id="jenis_lain"
+                name="jenis_lain"
+                list="saran-jenis"
+                maxLength={80}
+                autoComplete="off"
+                placeholder="Contoh: Bekas tumpahan oli"
+                defaultValue={awal.jenis_lain ?? ""}
+              />
+              <datalist id="saran-jenis">
+                {saranNama.map((n) => (
+                  <option key={n} value={n} />
+                ))}
+              </datalist>
+              <p className="mt-1 text-xs text-[#4A5568]">
+                Saat mengetik, HP akan menawarkan nama dari katalog. Kalau namanya ternyata
+                sudah ada, NRB otomatis memakai jenis dari katalog.
+              </p>
+
+              <p className={`${label} mt-3`}>Kategori</p>
+              <div className="grid grid-cols-2 gap-2">
+                {semuaKategori.map((kat) => (
+                  <Radio key={kat} nama="kategori_lain" nilai={kat} teks={kat} terpilih={awal.kategori_lain === kat} />
+                ))}
+              </div>
+            </div>
           </div>
         </details>
       </fieldset>

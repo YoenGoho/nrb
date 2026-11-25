@@ -3,9 +3,10 @@ import Link from "next/link";
 import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { formatKm } from "@/lib/sta";
+import { KOLOM_SESI, keteranganWaktuSesi, type BarisSesi } from "@/lib/inspeksi";
 import { satu, tujuanAman } from "@/lib/param";
 import { kodeTemuan } from "@/lib/temuan";
-import { IsianTemuan, type JenisKatalog } from "../IsianTemuan";
+import { IsianTemuan, PILIHAN_LAINNYA, type JenisKatalog } from "../IsianTemuan";
 import { tambahTemuan } from "../aksi";
 
 const tombolUtama = "rounded-xl bg-[#14213D] px-4 py-3 text-sm font-semibold text-white w-full";
@@ -21,24 +22,55 @@ async function FormTambah({ searchParams }: { searchParams: PageProps<"/catat/te
   const idDiminta = Number(satu(sp.inspeksi));
 
   const supabase = await createClient();
-  const kolom = "id, tanggal, sta_awal_m, sta_akhir_m, arah, status";
 
-  // Kalau alamat menyebut sesi tertentu, pakai sesi itu. Kalau tidak, pakai sesi yang sedang berjalan.
-  const { data: sesi } =
-    Number.isInteger(idDiminta) && idDiminta > 0
-      ? await supabase.from("inspeksi").select(kolom).eq("id", idDiminta).maybeSingle()
-      : await supabase
-          .from("inspeksi")
-          .select(kolom)
-          .eq("status", "Berjalan")
-          .order("dibuat_pada", { ascending: false })
-          .limit(1)
-          .maybeSingle();
+  let sesi: BarisSesi | null = null;
+
+  if (Number.isInteger(idDiminta) && idDiminta > 0) {
+    // Alamat menyebut sesi tertentu
+    const { data } = await supabase.from("inspeksi").select(KOLOM_SESI).eq("id", idDiminta).maybeSingle();
+    sesi = data as BarisSesi | null;
+  } else {
+    // Alamat tidak menyebut sesi. Pakai sesi berjalan hanya kalau jumlahnya tepat satu.
+    // Kalau lebih dari satu, pengguna wajib memilih, supaya temuan tidak masuk ke sesi yang salah.
+    const { data } = await supabase
+      .from("inspeksi")
+      .select(KOLOM_SESI)
+      .eq("status", "Berjalan")
+      .order("tanggal", { ascending: false });
+    const berjalan = (data ?? []) as BarisSesi[];
+
+    if (berjalan.length === 1) {
+      sesi = berjalan[0];
+    } else if (berjalan.length > 1) {
+      return (
+        <div className="mt-4">
+          <p className="rounded-xl bg-[#EEF1F5] px-4 py-3 text-sm text-[#2D3B52]">
+            Ada {berjalan.length} sesi berjalan. Pilih sesi tujuan temuan ini.
+          </p>
+          <ul className="mt-3 flex flex-col gap-2">
+            {berjalan.map((b) => (
+              <li key={b.id}>
+                <Link
+                  href={`/catat/temuan?inspeksi=${b.id}&kembali=${encodeURIComponent(`/riwayat/${b.id}`)}`}
+                  className="block rounded-xl border border-[#DCE2EA] bg-white px-4 py-3"
+                >
+                  <span className="block text-base font-semibold">
+                    {formatKm(b.sta_awal_m)} sampai {formatKm(b.sta_akhir_m)}, {b.arah}
+                  </span>
+                  <span className="block text-sm text-[#4A5568]">{keteranganWaktuSesi(b)}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+  }
 
   if (!sesi) {
     return (
       <div className="mt-4 rounded-xl border border-[#DCE2EA] bg-white p-4">
-        <p className="text-sm">Belum ada inspeksi berjalan. Mulai sesi dulu di halaman catat.</p>
+        <p className="text-sm">Belum ada sesi berjalan. Mulai sesi dulu di halaman catat.</p>
         <Link href="/catat" className={`${tombolUtama} mt-4 block text-center`}>Ke halaman catat</Link>
       </div>
     );
@@ -54,7 +86,10 @@ async function FormTambah({ searchParams }: { searchParams: PageProps<"/catat/te
     .order("kategori")
     .order("nama");
 
-  const jenisDibawa = Number(satu(sp.jenis));
+  // Pilihan jenis yang dibawa dari temuan sebelumnya: nomor katalog, atau ketikan manual
+  const jenisDibawaTeks = satu(sp.jenis);
+  const jenisManualDibawa = jenisDibawaTeks === PILIHAN_LAINNYA;
+  const jenisDibawa = Number(jenisDibawaTeks);
 
   return (
     <form action={tambahTemuan} className="mt-4 flex flex-col gap-5">
@@ -81,14 +116,20 @@ async function FormTambah({ searchParams }: { searchParams: PageProps<"/catat/te
         </p>
       ) : null}
 
-      <p className="rounded-xl bg-[#EEF1F5] px-4 py-3 text-sm text-[#2D3B52]">
-        Sesi {sesi.tanggal}, {formatKm(sesi.sta_awal_m)} sampai {formatKm(sesi.sta_akhir_m)}, {sesi.arah}
-      </p>
+      <div className="rounded-xl border-2 border-[#14213D] bg-white px-4 py-3">
+        <p className="text-xs font-semibold text-[#4A5568]">Temuan ini masuk ke sesi</p>
+        <p className="text-base font-semibold">
+          {formatKm(sesi.sta_awal_m)} sampai {formatKm(sesi.sta_akhir_m)}, {sesi.arah}
+        </p>
+        <p className="text-sm text-[#4A5568]">{keteranganWaktuSesi(sesi)}</p>
+      </div>
 
       <IsianTemuan
         katalog={(katalog ?? []) as JenisKatalog[]}
         awal={{
           jenis_temuan_id: Number.isInteger(jenisDibawa) && jenisDibawa > 0 ? jenisDibawa : null,
+          jenis_lain: jenisManualDibawa ? (satu(sp.jenis_lain) ?? null) : null,
+          kategori_lain: jenisManualDibawa ? (satu(sp.kategori_lain) ?? null) : null,
           tingkat: satu(sp.tingkat) ?? null,
           arah: satu(sp.arah) ?? sesi.arah,
           lajur: satu(sp.lajur) ?? null,

@@ -55,7 +55,7 @@ async function FormUbah({ params, searchParams }: {
   return (
     <div>
       <p className="mt-2 font-mono text-sm text-[#4A5568]">{kodeTemuan(t.id, t.dibuat_pada)}</p>
-      <p className="text-base font-semibold">{namaJenis(t.jenis_temuan)}</p>
+      <p className="text-base font-semibold">{namaJenis(t)}</p>
 
       <form action={ubahTemuan} className="mt-4 flex flex-col gap-5">
         <input type="hidden" name="temuan_id" value={t.id} />
