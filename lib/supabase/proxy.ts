@@ -4,7 +4,7 @@ import { NextResponse, type NextRequest } from "next/server";
 // Dijalankan sebelum setiap halaman dibuka. Dua tugasnya:
 // 1. Memperbarui tiket login supaya tidak kedaluwarsa di tengah jalan
 // 2. Menjaga halaman tertentu supaya hanya bisa dibuka setelah login
-const halamanTerkunci = ["/catat"];
+const halamanTerkunci = ["/catat", "/riwayat"];
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });

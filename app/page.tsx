@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { formatSta } from "@/lib/sta";
 import { TombolMasukGoogle } from "@/app/komponen/TombolMasukGoogle";
 import { TombolKeluar } from "@/app/komponen/TombolKeluar";
 
@@ -19,13 +20,6 @@ type Gerbang = {
   jenis: string;
   sta_m: number;
 };
-
-// Ubah meter jadi format STA, contoh 19600 menjadi 19+600
-function formatSta(meter: number) {
-  const km = Math.floor(meter / 1000);
-  const sisa = meter % 1000;
-  return `${km}+${String(sisa).padStart(3, "0")}`;
-}
 
 // Tampilkan tombol masuk, atau nama pengguna kalau sudah login
 async function StatusMasuk() {
@@ -59,6 +53,12 @@ async function StatusMasuk() {
         className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-[#14213D]"
       >
         Buka halaman catat
+      </Link>
+      <Link
+        href="/riwayat"
+        className="rounded-xl border border-[#4A5568] px-3 py-2 text-sm font-semibold text-[#E3E8F0]"
+      >
+        Riwayat
       </Link>
       <TombolKeluar />
     </div>
