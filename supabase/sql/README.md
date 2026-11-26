@@ -11,6 +11,7 @@ Dijalankan berurutan lewat SQL Editor di dashboard Supabase, satu berkas satu ka
 | 004_jumlah_riwayat.sql | Kolom jumlah, penanda temuan susulan, satu sesi berjalan, tabel riwayat_aksi | 25 November 2026 |
 | 005_jenis_manual.sql | Jenis temuan yang diketik manual beserta kategorinya | 25 November 2026 |
 | 006_sesi_bersamaan.sql | Beberapa sesi boleh berjalan bersamaan, jenis sesi Harian dan Berkala | 25 November 2026 |
+| 007_titik_kalibrasi.sql | Tabel titik kalibrasi patok KM, riwayat ikut mencatatnya | 25 November 2026 |
 
 Aturan yang dipakai di seluruh naskah:
 

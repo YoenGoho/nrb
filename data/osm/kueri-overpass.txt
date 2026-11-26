@@ -1,0 +1,8 @@
+[out:json][timeout:90];
+(
+  way["highway"="motorway"]["name"~"Jakarta.*Merak",i](-6.24,106.555,-6.16,106.805);
+  node["highway"="motorway_junction"](-6.24,106.555,-6.16,106.805);
+  node["barrier"="toll_booth"](-6.24,106.555,-6.16,106.805);
+  node["highway"="milestone"](-6.24,106.555,-6.16,106.805);
+);
+out geom;

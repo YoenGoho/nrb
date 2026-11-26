@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { keMeter } from "@/lib/sta";
 import { tujuanAman } from "@/lib/param";
+import { angka, kembaliDenganGalat, teks } from "@/lib/form";
 import { catatRiwayat } from "@/lib/riwayat";
 import { KATEGORI_LAIN, rapikanNama, seragamkanNama } from "@/lib/temuan";
 import { PILIHAN_LAINNYA } from "./IsianTemuan";
@@ -12,24 +13,6 @@ import { PILIHAN_LAINNYA } from "./IsianTemuan";
 // Server Action adalah fungsi yang ditulis di sini tetapi dijalankan di server
 // ketika sebuah form dikirim. Isian form masuk lewat FormData.
 
-function angka(fd: FormData, nama: string) {
-  const isi = fd.get(nama);
-  if (isi === null || isi === "") return null;
-  const n = Number(isi);
-  return Number.isFinite(n) ? n : null;
-}
-
-function teks(fd: FormData, nama: string) {
-  const isi = fd.get(nama);
-  if (typeof isi !== "string") return null;
-  const bersih = isi.trim();
-  return bersih === "" ? null : bersih;
-}
-
-function kembaliDenganGalat(tujuan: string, pesan: string): never {
-  const pemisah = tujuan.includes("?") ? "&" : "?";
-  redirect(`${tujuan}${pemisah}galat=${encodeURIComponent(pesan)}`);
-}
 
 function perbaruiHalaman() {
   revalidatePath("/catat", "layout");

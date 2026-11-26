@@ -1,0 +1,6101 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.4 2390de5a",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-25T14:36:36Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 309825165,
+      "lat": -6.2066662,
+      "lon": 106.8027715,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Gerbang Tol Pejompongan"
+      }
+    },
+    {
+      "type": "node",
+      "id": 310046034,
+      "lat": -6.1998165,
+      "lon": 106.7985942,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Slipi 1",
+        "payment:cash": "no",
+        "payment:ep_brizzi": "yes",
+        "payment:ep_flazz": "yes",
+        "payment:ep_mandiri_emoney": "yes",
+        "payment:ep_tapcash": "yes",
+        "payment:id_jakcard": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 310048086,
+      "lat": -6.1951496,
+      "lon": 106.7975301,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Gerbang Tol Slipi 2",
+        "payment:cash": "no",
+        "payment:ep_brizzi": "yes",
+        "payment:ep_flazz": "yes",
+        "payment:ep_mandiri_emoney": "yes",
+        "payment:ep_tapcash": "yes",
+        "payment:id_jakcard": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316176020,
+      "lat": -6.1827576,
+      "lon": 106.7928256,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Simpang Susun Tomang",
+        "name:en": "Tomang Interchange",
+        "name:id": "Simpang Susun Tomang",
+        "noref": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316176025,
+      "lat": -6.1899775,
+      "lon": 106.7690614,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Kebon Jeruk",
+        "ref": "3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316179369,
+      "lat": -6.2062041,
+      "lon": 106.7006817,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Karang Tengah Barat",
+        "ref": "11"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316179374,
+      "lat": -6.1906002,
+      "lon": 106.7240156,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Meruya Utara",
+        "ref": "8"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316224136,
+      "lat": -6.2222972,
+      "lon": 106.6357778,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Tangerang",
+        "ref": "18"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316224155,
+      "lat": -6.19129,
+      "lon": 106.747995,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Meruya",
+        "noref": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316224173,
+      "lat": -6.2211617,
+      "lon": 106.6449932,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Tangerang",
+        "ref": "18"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316224176,
+      "lat": -6.2248539,
+      "lon": 106.6188837,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Karawaci",
+        "ref": "21"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316224197,
+      "lat": -6.2230717,
+      "lon": 106.6216895,
+      "tags": {
+        "barrier": "toll_booth"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316224215,
+      "lat": -6.2216372,
+      "lon": 106.637869,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Toll Gate Tangerang 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316224558,
+      "lat": -6.1899143,
+      "lon": 106.7302563,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Kembangan Selatan"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316224586,
+      "lat": -6.1912032,
+      "lon": 106.7442464,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Toll Gate Meruya 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316224587,
+      "lat": -6.1916478,
+      "lon": 106.7442097,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Meruya 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 316378490,
+      "lat": -6.2196056,
+      "lon": 106.5630665,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Bitung",
+        "ref": "26"
+      }
+    },
+    {
+      "type": "node",
+      "id": 332526144,
+      "lat": -6.190284,
+      "lon": 106.7679973,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Toll Gate Kebon Jeruk 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 332526380,
+      "lat": -6.1900209,
+      "lon": 106.7643435,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Kebon Jeruk",
+        "ref": "3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 332526384,
+      "lat": -6.1897093,
+      "lon": 106.7679965,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "gerbang Tol Kebon Jeruk 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 860932089,
+      "lat": -6.2211921,
+      "lon": 106.5697668,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Bitung",
+        "ref": "26"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1564550533,
+      "lat": -6.1602098,
+      "lon": 106.7271658,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Rawa Buaya",
+        "ref": "5"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1663996343,
+      "lat": -6.1916339,
+      "lon": 106.7364012,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Meruya Utara",
+        "ref": "7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1757800738,
+      "lat": -6.1697199,
+      "lon": 106.7877215,
+      "tags": {
+        "destination:symbol": "airport",
+        "highway": "motorway_junction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2027850401,
+      "lat": -6.2268119,
+      "lon": 106.6141034,
+      "tags": {
+        "barrier": "toll_booth"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2107528685,
+      "lat": -6.216914,
+      "lon": 106.6709054,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Kunciran",
+        "ref": "15"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2107528695,
+      "lat": -6.2170945,
+      "lon": 106.6686161,
+      "tags": {
+        "barrier": "toll_booth"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2107528736,
+      "lat": -6.2184214,
+      "lon": 106.666016,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Kunciran 8"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2107528782,
+      "lat": -6.2203092,
+      "lon": 106.666972,
+      "tags": {
+        "barrier": "toll_booth",
+        "motorcycle": "no",
+        "name": "Kunciran 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2408394613,
+      "lat": -6.2320295,
+      "lon": 106.7541326,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Ciledug",
+        "ref": "13"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2408396716,
+      "lat": -6.192849,
+      "lon": 106.7332393,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Meruya Utara 3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2408396724,
+      "lat": -6.1967632,
+      "lon": 106.7337822,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Meruya Utara",
+        "noref": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2597827550,
+      "lat": -6.1920321,
+      "lon": 106.7334727,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Meruya Utara 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2599144760,
+      "lat": -6.1847674,
+      "lon": 106.7300835,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Meruya Utara",
+        "ref": "7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2600679299,
+      "lat": -6.1913292,
+      "lon": 106.7359937,
+      "tags": {
+        "access": "yes",
+        "barrier": "toll_booth",
+        "name": "Meruya Utara 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2600699413,
+      "lat": -6.2211759,
+      "lon": 106.7471471,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Joglo 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2600699424,
+      "lat": -6.2216291,
+      "lon": 106.7472015,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Joglo",
+        "ref": "12"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2600703941,
+      "lat": -6.215371,
+      "lon": 106.7438134,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Joglo",
+        "ref": "11"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2600712057,
+      "lat": -6.2011817,
+      "lon": 106.7361401,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Meruya Selatan",
+        "ref": "9"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2600712058,
+      "lat": -6.2041092,
+      "lon": 106.7372833,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Meruya Selatan 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2600712062,
+      "lat": -6.209415,
+      "lon": 106.7402708,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Meruya Selatan",
+        "ref": "10"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3266497621,
+      "lat": -6.1816384,
+      "lon": 106.7935213,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Gerbang Tol Tomang"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3601702227,
+      "lat": -6.1789591,
+      "lon": 106.7287211,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Kembangan Utara",
+        "ref": "7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3723599608,
+      "lat": -6.2086276,
+      "lon": 106.8043218,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Slipi",
+        "noref": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3723599609,
+      "lat": -6.185685,
+      "lon": 106.7970307,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Tomang",
+        "noref": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3723599610,
+      "lat": -6.192232,
+      "lon": 106.7971432,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Tomang",
+        "noref": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4294226044,
+      "lat": -6.2224176,
+      "lon": 106.6394344,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Tangerang 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4295053538,
+      "lat": -6.2024783,
+      "lon": 106.7052232,
+      "tags": {
+        "barrier": "toll_booth",
+        "motorcycle": "no",
+        "name": "Toll Gate Karang Tengah Barat 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4445780685,
+      "lat": -6.2390912,
+      "lon": 106.7582642,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Ciledug 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4445781095,
+      "lat": -6.2335939,
+      "lon": 106.7548422,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Ciledug 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4551163773,
+      "lat": -6.1901999,
+      "lon": 106.7680022,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Toll Gate Kebon Jeruk 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4554013801,
+      "lat": -6.2214745,
+      "lon": 106.637188,
+      "tags": {
+        "barrier": "toll_booth",
+        "motorcycle": "no",
+        "name": "Gerbang Tol Tanggerang Serpong"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4735893521,
+      "lat": -6.1732769,
+      "lon": 106.7903126,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Tanjung Duren"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4879645331,
+      "lat": -6.2087232,
+      "lon": 106.7402031,
+      "tags": {
+        "barrier": "toll_booth"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5028161882,
+      "lat": -6.2220682,
+      "lon": 106.6705883,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Kunciran",
+        "ref": "14"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5078629759,
+      "lat": -6.1752977,
+      "lon": 106.7920964,
+      "tags": {
+        "highway": "motorway_junction",
+        "noref": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5283529129,
+      "lat": -6.1940058,
+      "lon": 106.7314002,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Meruya Utara 4"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5487643138,
+      "lat": -6.1948339,
+      "lon": 106.7331715,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Meruya Utama 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5930830677,
+      "lat": -6.2265824,
+      "lon": 106.6164083,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Toll Gate Karawaci 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5933565863,
+      "lat": -6.2186251,
+      "lon": 106.5653915,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Bitung 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6129162274,
+      "lat": -6.21339,
+      "lon": 106.6634822,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Kunciran",
+        "ref": "13"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6427264067,
+      "lat": -6.2009903,
+      "lon": 106.7990756,
+      "tags": {
+        "highway": "motorway_junction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6427290355,
+      "lat": -6.2163404,
+      "lon": 106.7440934,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Joglo 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6427427591,
+      "lat": -6.1809556,
+      "lon": 106.728892,
+      "tags": {
+        "barrier": "toll_booth"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6427427592,
+      "lat": -6.1814009,
+      "lon": 106.7290087,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Kembangan Utara"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6615473508,
+      "lat": -6.1945055,
+      "lon": 106.7159274,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Karang Tengah Barat",
+        "ref": "11"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6615577763,
+      "lat": -6.2184069,
+      "lon": 106.5649125,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Bitung 1 (GTO)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6615827276,
+      "lat": -6.2173803,
+      "lon": 106.6680455,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Kunciran 2 (GTO)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6618522017,
+      "lat": -6.1917006,
+      "lon": 106.7447305,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Meruya 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6777179690,
+      "lat": -6.2192674,
+      "lon": 106.5662426,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Bitung 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6835837616,
+      "lat": -6.2188321,
+      "lon": 106.660086,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Kunciran",
+        "ref": "16"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6835837642,
+      "lat": -6.2198553,
+      "lon": 106.6691368,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Kunciran 3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6835837722,
+      "lat": -6.2200992,
+      "lon": 106.6686885,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Kunciran 4"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7037487225,
+      "lat": -6.2183001,
+      "lon": 106.662502,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Gerbang Tol Kunciran 5"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7202625774,
+      "lat": -6.1845886,
+      "lon": 106.79688,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Simpang Susun Tomang",
+        "name:en": "Tomang Interchange",
+        "name:id": "Simpang Susun Tomang"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7243967599,
+      "lat": -6.1897941,
+      "lon": 106.7680024,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Toll Gate Kebon Jeruk 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7257358757,
+      "lat": -6.2217648,
+      "lon": 106.5724379,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Gerbang Tol Bitung 3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7265440769,
+      "lat": -6.1931595,
+      "lon": 106.7327505,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Meruya Utama 3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7804806536,
+      "lat": -6.1963584,
+      "lon": 106.7139293,
+      "tags": {
+        "access": "yes",
+        "barrier": "toll_booth",
+        "name": "Karang Tengah Barat 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7807764765,
+      "lat": -6.2197547,
+      "lon": 106.5663649,
+      "tags": {
+        "barrier": "toll_booth"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512142,
+      "lat": -6.215541,
+      "lon": 106.6653299,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Kunciran 7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512151,
+      "lat": -6.2165,
+      "lon": 106.6681954,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Kunciran 6"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512176,
+      "lat": -6.2050799,
+      "lon": 106.6554261,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Gerbang Tol Tirtayasa 3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512180,
+      "lat": -6.2080707,
+      "lon": 106.6570162,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Pinang 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512184,
+      "lat": -6.2102541,
+      "lon": 106.6594678,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Cipete",
+        "ref": "11"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512188,
+      "lat": -6.2082228,
+      "lon": 106.6578189,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Pinang 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512193,
+      "lat": -6.2056431,
+      "lon": 106.6561861,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Gerbang Tol Tirtayasa 4"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512233,
+      "lat": -6.2035751,
+      "lon": 106.6553366,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Cipete",
+        "ref": "11"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512259,
+      "lat": -6.180776,
+      "lon": 106.6534657,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Buaran Indah 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512265,
+      "lat": -6.1814539,
+      "lon": 106.652654,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Buaran Indah 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512308,
+      "lat": -6.1689659,
+      "lon": 106.653126,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Tanah Tinggi 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512312,
+      "lat": -6.1685509,
+      "lon": 106.6537015,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Tanah Tinggi 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512359,
+      "lat": -6.1841627,
+      "lon": 106.6519744,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Buaran Indah",
+        "ref": "9"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7968512380,
+      "lat": -6.1662028,
+      "lon": 106.6543418,
+      "tags": {
+        "highway": "motorway_junction",
+        "name": "Tanah Tinggi",
+        "ref": "7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9271321245,
+      "lat": -6.1938732,
+      "lon": 106.7328347,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Meruya Utama 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10042829179,
+      "lat": -6.2017502,
+      "lon": 106.7061636,
+      "tags": {
+        "barrier": "toll_booth"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10130937350,
+      "lat": -6.2219692,
+      "lon": 106.7476755,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Joglo 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12298423411,
+      "lat": -6.2216889,
+      "lon": 106.572446,
+      "tags": {
+        "barrier": "toll_booth",
+        "name": "Gerbang Tol Bitung 3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12526185630,
+      "lat": -6.2247355,
+      "lon": 106.6165358,
+      "tags": {
+        "barrier": "toll_booth"
+      }
+    },
+    {
+      "type": "way",
+      "id": 72517859,
+      "bounds": {
+        "minlat": -6.2232267,
+        "minlon": 106.6290872,
+        "maxlat": -6.2230113,
+        "maxlon": 106.6307783
+      },
+      "nodes": [
+        860916592,
+        860916591
+      ],
+      "geometry": [
+        {
+          "lat": -6.2232267,
+          "lon": 106.6290872
+        },
+        {
+          "lat": -6.2230113,
+          "lon": 106.6307783
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "bridge:name": "Jembatan Kali Cisadane",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "14.17"
+      }
+    },
+    {
+      "type": "way",
+      "id": 72517860,
+      "bounds": {
+        "minlat": -6.2244963,
+        "minlon": 106.621333,
+        "maxlat": -6.223398,
+        "maxlon": 106.6290667
+      },
+      "nodes": [
+        860916589,
+        316224175,
+        7070720222
+      ],
+      "geometry": [
+        {
+          "lat": -6.223398,
+          "lon": 106.6290667
+        },
+        {
+          "lat": -6.2238741,
+          "lon": 106.6257887
+        },
+        {
+          "lat": -6.2244963,
+          "lon": 106.621333
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "16.36",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 72517863,
+      "bounds": {
+        "minlat": -6.223398,
+        "minlon": 106.6290667,
+        "maxlat": -6.2231529,
+        "maxlon": 106.6307958
+      },
+      "nodes": [
+        860916594,
+        860916589
+      ],
+      "geometry": [
+        {
+          "lat": -6.2231529,
+          "lon": 106.6307958
+        },
+        {
+          "lat": -6.223398,
+          "lon": 106.6290667
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "bridge:name": "Jembatan Kali Cisadane",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "16.62"
+      }
+    },
+    {
+      "type": "way",
+      "id": 72518626,
+      "bounds": {
+        "minlat": -6.2207093,
+        "minlon": 106.5661809,
+        "maxlat": -6.2203962,
+        "maxlon": 106.567723
+      },
+      "nodes": [
+        316378491,
+        316229963
+      ],
+      "geometry": [
+        {
+          "lat": -6.2203962,
+          "lon": 106.5661809
+        },
+        {
+          "lat": -6.2207093,
+          "lon": 106.567723
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "8.46",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 72518627,
+      "bounds": {
+        "minlat": -6.2205434,
+        "minlon": 106.565787,
+        "maxlat": -6.2204641,
+        "maxlon": 106.5661339
+      },
+      "nodes": [
+        316378492,
+        860930552
+      ],
+      "geometry": [
+        {
+          "lat": -6.2205434,
+          "lon": 106.5661339
+        },
+        {
+          "lat": -6.2204641,
+          "lon": 106.565787
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "9.26"
+      }
+    },
+    {
+      "type": "way",
+      "id": 72518762,
+      "bounds": {
+        "minlat": -6.2204641,
+        "minlon": 106.5644727,
+        "maxlat": -6.2201512,
+        "maxlon": 106.565787
+      },
+      "nodes": [
+        860930552,
+        1782745275
+      ],
+      "geometry": [
+        {
+          "lat": -6.2204641,
+          "lon": 106.565787
+        },
+        {
+          "lat": -6.2201512,
+          "lon": 106.5644727
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "est_width": "9.22",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 72518943,
+      "bounds": {
+        "minlat": -6.2203962,
+        "minlon": 106.5658246,
+        "maxlat": -6.2203223,
+        "maxlon": 106.5661809
+      },
+      "nodes": [
+        860934407,
+        316378491
+      ],
+      "geometry": [
+        {
+          "lat": -6.2203223,
+          "lon": 106.5658246
+        },
+        {
+          "lat": -6.2203962,
+          "lon": 106.5661809
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "est_width": "7.51",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 164124649,
+      "bounds": {
+        "minlat": -6.2230113,
+        "minlon": 106.6307783,
+        "maxlat": -6.2224629,
+        "maxlon": 106.634755
+      },
+      "nodes": [
+        860916591,
+        7180803674,
+        7180803673,
+        7180803672,
+        11363976341
+      ],
+      "geometry": [
+        {
+          "lat": -6.2230113,
+          "lon": 106.6307783
+        },
+        {
+          "lat": -6.2228438,
+          "lon": 106.6319275
+        },
+        {
+          "lat": -6.2226572,
+          "lon": 106.6334389
+        },
+        {
+          "lat": -6.2225012,
+          "lon": 106.6345185
+        },
+        {
+          "lat": -6.2224629,
+          "lon": 106.634755
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "14.65",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 166850592,
+      "bounds": {
+        "minlat": -6.2196661,
+        "minlon": 106.5620687,
+        "maxlat": -6.2194394,
+        "maxlon": 106.5627775
+      },
+      "nodes": [
+        1782745265,
+        316378493
+      ],
+      "geometry": [
+        {
+          "lat": -6.2196661,
+          "lon": 106.5627775
+        },
+        {
+          "lat": -6.2194394,
+          "lon": 106.5620687
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "7.84"
+      }
+    },
+    {
+      "type": "way",
+      "id": 166850593,
+      "bounds": {
+        "minlat": -6.2195317,
+        "minlon": 106.5621109,
+        "maxlat": -6.2193172,
+        "maxlon": 106.5628081
+      },
+      "nodes": [
+        1782745259,
+        1782745262
+      ],
+      "geometry": [
+        {
+          "lat": -6.2193172,
+          "lon": 106.5621109
+        },
+        {
+          "lat": -6.2195317,
+          "lon": 106.5628081
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "7.22"
+      }
+    },
+    {
+      "type": "way",
+      "id": 166850594,
+      "bounds": {
+        "minlat": -6.2196056,
+        "minlon": 106.5628081,
+        "maxlat": -6.2195317,
+        "maxlon": 106.5630665
+      },
+      "nodes": [
+        1782745262,
+        316378490
+      ],
+      "geometry": [
+        {
+          "lat": -6.2195317,
+          "lon": 106.5628081
+        },
+        {
+          "lat": -6.2196056,
+          "lon": 106.5630665
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "est_width": "8.56",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 166850595,
+      "bounds": {
+        "minlat": -6.2177124,
+        "minlon": 106.5256223,
+        "maxlat": -6.2055662,
+        "maxlon": 106.5578479
+      },
+      "nodes": [
+        316378495,
+        7824296755,
+        1103760608,
+        5633959817,
+        6562066520,
+        6562078821,
+        6562084219,
+        316378496,
+        316378497,
+        1103759420,
+        1103760212,
+        316378498,
+        7259715904,
+        1103759863,
+        7259715903,
+        316378499,
+        1103760282,
+        316378500,
+        316378501,
+        1103759734
+      ],
+      "geometry": [
+        {
+          "lat": -6.2177124,
+          "lon": 106.5578479
+        },
+        {
+          "lat": -6.2169434,
+          "lon": 106.5563794
+        },
+        {
+          "lat": -6.2163468,
+          "lon": 106.5553493
+        },
+        {
+          "lat": -6.2160375,
+          "lon": 106.5548624
+        },
+        {
+          "lat": -6.2157071,
+          "lon": 106.5543607
+        },
+        {
+          "lat": -6.2153085,
+          "lon": 106.5537719
+        },
+        {
+          "lat": -6.2149445,
+          "lon": 106.5532516
+        },
+        {
+          "lat": -6.2133228,
+          "lon": 106.5512088
+        },
+        {
+          "lat": -6.2105062,
+          "lon": 106.548032
+        },
+        {
+          "lat": -6.2096956,
+          "lon": 106.5469457
+        },
+        {
+          "lat": -6.2092209,
+          "lon": 106.5461907
+        },
+        {
+          "lat": -6.208745,
+          "lon": 106.545327
+        },
+        {
+          "lat": -6.208331,
+          "lon": 106.5444365
+        },
+        {
+          "lat": -6.2080704,
+          "lon": 106.5437995
+        },
+        {
+          "lat": -6.2077099,
+          "lon": 106.542657
+        },
+        {
+          "lat": -6.2075155,
+          "lon": 106.5419257
+        },
+        {
+          "lat": -6.2059964,
+          "lon": 106.5332594
+        },
+        {
+          "lat": -6.2057554,
+          "lon": 106.5311441
+        },
+        {
+          "lat": -6.2056188,
+          "lon": 106.5289598
+        },
+        {
+          "lat": -6.2055662,
+          "lon": 106.5256223
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "est_width": "9",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 320158473,
+      "bounds": {
+        "minlat": -6.1915626,
+        "minlon": 106.7271786,
+        "maxlat": -6.1910669,
+        "maxlon": 106.731924
+      },
+      "nodes": [
+        316179377,
+        2599166384,
+        316179378
+      ],
+      "geometry": [
+        {
+          "lat": -6.1915626,
+          "lon": 106.731924
+        },
+        {
+          "lat": -6.1914508,
+          "lon": 106.7304176
+        },
+        {
+          "lat": -6.1910669,
+          "lon": 106.7271786
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "lit": "yes",
+        "maxheight": "4.2",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 406822995,
+      "bounds": {
+        "minlat": -6.1835027,
+        "minlon": 106.792202,
+        "maxlat": -6.1827576,
+        "maxlon": 106.7928256
+      },
+      "nodes": [
+        3266578165,
+        3266578166,
+        316176020
+      ],
+      "geometry": [
+        {
+          "lat": -6.1835027,
+          "lon": 106.792202
+        },
+        {
+          "lat": -6.1832881,
+          "lon": 106.792417
+        },
+        {
+          "lat": -6.1827576,
+          "lon": 106.7928256
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "11.22",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcar": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 406822996,
+      "bounds": {
+        "minlat": -6.1839356,
+        "minlon": 106.7915538,
+        "maxlat": -6.1835027,
+        "maxlon": 106.792202
+      },
+      "nodes": [
+        3266396603,
+        7246569129,
+        3266396604,
+        3266578165
+      ],
+      "geometry": [
+        {
+          "lat": -6.1839356,
+          "lon": 106.7915538
+        },
+        {
+          "lat": -6.1838142,
+          "lon": 106.7917898
+        },
+        {
+          "lat": -6.1836489,
+          "lon": 106.7920285
+        },
+        {
+          "lat": -6.1835027,
+          "lon": 106.792202
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "motorcar": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "10.14"
+      }
+    },
+    {
+      "type": "way",
+      "id": 406822997,
+      "bounds": {
+        "minlat": -6.1836114,
+        "minlon": 106.7922781,
+        "maxlat": -6.1829212,
+        "maxlon": 106.7928585
+      },
+      "nodes": [
+        1757800682,
+        3266483212,
+        1757800857
+      ],
+      "geometry": [
+        {
+          "lat": -6.1829212,
+          "lon": 106.7928585
+        },
+        {
+          "lat": -6.1833846,
+          "lon": 106.7925155
+        },
+        {
+          "lat": -6.1836114,
+          "lon": 106.7922781
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "8.4",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 406822998,
+      "bounds": {
+        "minlat": -6.1840386,
+        "minlon": 106.7916269,
+        "maxlat": -6.1836114,
+        "maxlon": 106.7922781
+      },
+      "nodes": [
+        1757800857,
+        1757800826,
+        1757800632,
+        7246569128,
+        1757800847
+      ],
+      "geometry": [
+        {
+          "lat": -6.1836114,
+          "lon": 106.7922781
+        },
+        {
+          "lat": -6.1837314,
+          "lon": 106.7921386
+        },
+        {
+          "lat": -6.1838279,
+          "lon": 106.7920091
+        },
+        {
+          "lat": -6.1839395,
+          "lon": 106.791826
+        },
+        {
+          "lat": -6.1840386,
+          "lon": 106.7916269
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "10.91"
+      }
+    },
+    {
+      "type": "way",
+      "id": 428492885,
+      "bounds": {
+        "minlat": -6.209493,
+        "minlon": 106.6956519,
+        "maxlat": -6.2062041,
+        "maxlon": 106.7006817
+      },
+      "nodes": [
+        4275853199,
+        316224148,
+        4275852888,
+        6322551351,
+        4275853197,
+        316179369
+      ],
+      "geometry": [
+        {
+          "lat": -6.209493,
+          "lon": 106.6956519
+        },
+        {
+          "lat": -6.2089786,
+          "lon": 106.6966568
+        },
+        {
+          "lat": -6.2086,
+          "lon": 106.6973139
+        },
+        {
+          "lat": -6.2079144,
+          "lon": 106.6983953
+        },
+        {
+          "lat": -6.2071853,
+          "lon": 106.69941
+        },
+        {
+          "lat": -6.2062041,
+          "lon": 106.7006817
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "13.48",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 428492886,
+      "bounds": {
+        "minlat": -6.2096982,
+        "minlon": 106.6952367,
+        "maxlat": -6.209493,
+        "maxlon": 106.6956519
+      },
+      "nodes": [
+        316224147,
+        4275853199
+      ],
+      "geometry": [
+        {
+          "lat": -6.2096982,
+          "lon": 106.6952367
+        },
+        {
+          "lat": -6.209493,
+          "lon": 106.6956519
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "est_width": "13.48",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "layer": "1",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 428492887,
+      "bounds": {
+        "minlat": -6.216914,
+        "minlon": 106.6709054,
+        "maxlat": -6.2146135,
+        "maxlon": 106.6791752
+      },
+      "nodes": [
+        316224165,
+        6555012308,
+        316224166,
+        6555012307,
+        2107528685
+      ],
+      "geometry": [
+        {
+          "lat": -6.2146135,
+          "lon": 106.6791752
+        },
+        {
+          "lat": -6.2148685,
+          "lon": 106.678209
+        },
+        {
+          "lat": -6.2154241,
+          "lon": 106.6762837
+        },
+        {
+          "lat": -6.2160337,
+          "lon": 106.674065
+        },
+        {
+          "lat": -6.216914,
+          "lon": 106.6709054
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "11.81",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "no",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 428492888,
+      "bounds": {
+        "minlat": -6.2098172,
+        "minlon": 106.695342,
+        "maxlat": -6.2096799,
+        "maxlon": 106.6956295
+      },
+      "nodes": [
+        316224162,
+        4275853193
+      ],
+      "geometry": [
+        {
+          "lat": -6.2096799,
+          "lon": 106.6956295
+        },
+        {
+          "lat": -6.2098172,
+          "lon": 106.695342
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "layer": "1",
+        "lit": "yes",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "13.34"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615838,
+      "bounds": {
+        "minlat": -6.2140367,
+        "minlon": 106.6805497,
+        "maxlat": -6.2119235,
+        "maxlon": 106.6881916
+      },
+      "nodes": [
+        316224144,
+        5504619153,
+        5504619151,
+        316224145
+      ],
+      "geometry": [
+        {
+          "lat": -6.2140367,
+          "lon": 106.6805497
+        },
+        {
+          "lat": -6.2136439,
+          "lon": 106.6821072
+        },
+        {
+          "lat": -6.2134104,
+          "lon": 106.6829287
+        },
+        {
+          "lat": -6.2119235,
+          "lon": 106.6881916
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.1",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615842,
+      "bounds": {
+        "minlat": -6.2252222,
+        "minlon": 106.581736,
+        "maxlat": -6.2223252,
+        "maxlon": 106.6188837
+      },
+      "nodes": [
+        316224176,
+        12802004740,
+        12520070987,
+        12802004739,
+        12520070988,
+        12802004736,
+        12526185651,
+        12520070989,
+        12520070990,
+        316224177
+      ],
+      "geometry": [
+        {
+          "lat": -6.2248539,
+          "lon": 106.6188837
+        },
+        {
+          "lat": -6.2250889,
+          "lon": 106.6169393
+        },
+        {
+          "lat": -6.2251929,
+          "lon": 106.6155179
+        },
+        {
+          "lat": -6.2252222,
+          "lon": 106.6145615
+        },
+        {
+          "lat": -6.2251889,
+          "lon": 106.6130976
+        },
+        {
+          "lat": -6.2251236,
+          "lon": 106.6118713
+        },
+        {
+          "lat": -6.2249248,
+          "lon": 106.6096424
+        },
+        {
+          "lat": -6.2237795,
+          "lon": 106.5973972
+        },
+        {
+          "lat": -6.2232977,
+          "lon": 106.592567
+        },
+        {
+          "lat": -6.2223252,
+          "lon": 106.581736
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12.69"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615844,
+      "bounds": {
+        "minlat": -6.2203223,
+        "minlon": 106.5630665,
+        "maxlat": -6.2196056,
+        "maxlon": 106.5658246
+      },
+      "nodes": [
+        316378490,
+        860934407
+      ],
+      "geometry": [
+        {
+          "lat": -6.2196056,
+          "lon": 106.5630665
+        },
+        {
+          "lat": -6.2203223,
+          "lon": 106.5658246
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "6.29",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615847,
+      "bounds": {
+        "minlat": -6.1915313,
+        "minlon": 106.7240156,
+        "maxlat": -6.1905962,
+        "maxlon": 106.7457741
+      },
+      "nodes": [
+        316179374,
+        4275852885,
+        4275853190,
+        6647242337,
+        4275853196,
+        316179375,
+        4275853194,
+        316179376,
+        2408396733,
+        7028653893,
+        316224153,
+        316179366,
+        5498123905
+      ],
+      "geometry": [
+        {
+          "lat": -6.1906002,
+          "lon": 106.7240156
+        },
+        {
+          "lat": -6.1905962,
+          "lon": 106.7243524
+        },
+        {
+          "lat": -6.1906148,
+          "lon": 106.7250816
+        },
+        {
+          "lat": -6.1906593,
+          "lon": 106.7256546
+        },
+        {
+          "lat": -6.1907434,
+          "lon": 106.7262428
+        },
+        {
+          "lat": -6.1910522,
+          "lon": 106.7281931
+        },
+        {
+          "lat": -6.1913254,
+          "lon": 106.7304807
+        },
+        {
+          "lat": -6.1914299,
+          "lon": 106.7319119
+        },
+        {
+          "lat": -6.1914542,
+          "lon": 106.7344139
+        },
+        {
+          "lat": -6.1914956,
+          "lon": 106.7374676
+        },
+        {
+          "lat": -6.1915313,
+          "lon": 106.7404711
+        },
+        {
+          "lat": -6.1913792,
+          "lon": 106.7442584
+        },
+        {
+          "lat": -6.1912895,
+          "lon": 106.7457741
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "8.97",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "maxheight": "4.2",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615848,
+      "bounds": {
+        "minlat": -6.2223252,
+        "minlon": 106.575,
+        "maxlat": -6.2216965,
+        "maxlon": 106.581736
+      },
+      "nodes": [
+        316224177,
+        7070270771
+      ],
+      "geometry": [
+        {
+          "lat": -6.2223252,
+          "lon": 106.581736
+        },
+        {
+          "lat": -6.2216965,
+          "lon": 106.575
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.52",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615851,
+      "bounds": {
+        "minlat": -6.2096799,
+        "minlon": 106.6956295,
+        "maxlat": -6.2064286,
+        "maxlon": 106.700696
+      },
+      "nodes": [
+        316179384,
+        4294658141,
+        6322551349,
+        6322201922,
+        6322551348,
+        316224161,
+        4294658142,
+        316224162
+      ],
+      "geometry": [
+        {
+          "lat": -6.2064286,
+          "lon": 106.700696
+        },
+        {
+          "lat": -6.2073115,
+          "lon": 106.6995204
+        },
+        {
+          "lat": -6.2076957,
+          "lon": 106.6989988
+        },
+        {
+          "lat": -6.208069,
+          "lon": 106.6984543
+        },
+        {
+          "lat": -6.2084317,
+          "lon": 106.6979071
+        },
+        {
+          "lat": -6.2087686,
+          "lon": 106.6973793
+        },
+        {
+          "lat": -6.2091354,
+          "lon": 106.6967363
+        },
+        {
+          "lat": -6.2096799,
+          "lon": 106.6956295
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "13.86",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615853,
+      "bounds": {
+        "minlat": -6.2239129,
+        "minlon": 106.6243234,
+        "maxlat": -6.2232267,
+        "maxlon": 106.6290872
+      },
+      "nodes": [
+        316224135,
+        860916592
+      ],
+      "geometry": [
+        {
+          "lat": -6.2239129,
+          "lon": 106.6243234
+        },
+        {
+          "lat": -6.2232267,
+          "lon": 106.6290872
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.76",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615854,
+      "bounds": {
+        "minlat": -6.217578,
+        "minlon": 106.5249878,
+        "maxlat": -6.2053752,
+        "maxlon": 106.5578719
+      },
+      "nodes": [
+        1103760028,
+        316378482,
+        316378483,
+        1103760123,
+        316378484,
+        7259715905,
+        7259715906,
+        1103759644,
+        7259715907,
+        316378485,
+        1103760390,
+        1103760538,
+        7259715908,
+        316378486,
+        316378487,
+        6562061236,
+        5633959818,
+        6562031580,
+        1103759536,
+        316378488
+      ],
+      "geometry": [
+        {
+          "lat": -6.2053752,
+          "lon": 106.5249878
+        },
+        {
+          "lat": -6.205476,
+          "lon": 106.5289743
+        },
+        {
+          "lat": -6.2056032,
+          "lon": 106.531158
+        },
+        {
+          "lat": -6.2058647,
+          "lon": 106.5332519
+        },
+        {
+          "lat": -6.2073864,
+          "lon": 106.5419511
+        },
+        {
+          "lat": -6.2075766,
+          "lon": 106.5427003
+        },
+        {
+          "lat": -6.2076651,
+          "lon": 106.5430391
+        },
+        {
+          "lat": -6.2079184,
+          "lon": 106.5438223
+        },
+        {
+          "lat": -6.208245,
+          "lon": 106.5446444
+        },
+        {
+          "lat": -6.2085623,
+          "lon": 106.5453344
+        },
+        {
+          "lat": -6.209081,
+          "lon": 106.5462577
+        },
+        {
+          "lat": -6.2095369,
+          "lon": 106.5469779
+        },
+        {
+          "lat": -6.2099822,
+          "lon": 106.5476042
+        },
+        {
+          "lat": -6.2105302,
+          "lon": 106.5483016
+        },
+        {
+          "lat": -6.2132284,
+          "lon": 106.5512937
+        },
+        {
+          "lat": -6.2152177,
+          "lon": 106.5538554
+        },
+        {
+          "lat": -6.2159199,
+          "lon": 106.554931
+        },
+        {
+          "lat": -6.216228,
+          "lon": 106.5554148
+        },
+        {
+          "lat": -6.216833,
+          "lon": 106.5564336
+        },
+        {
+          "lat": -6.217578,
+          "lon": 106.5578719
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "est_width": "9",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615855,
+      "bounds": {
+        "minlat": -6.2201512,
+        "minlon": 106.5627775,
+        "maxlat": -6.2196661,
+        "maxlon": 106.5644727
+      },
+      "nodes": [
+        1782745275,
+        1782745265
+      ],
+      "geometry": [
+        {
+          "lat": -6.2201512,
+          "lon": 106.5644727
+        },
+        {
+          "lat": -6.2196661,
+          "lon": 106.5627775
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "est_width": "8.69",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615856,
+      "bounds": {
+        "minlat": -6.2222556,
+        "minlon": 106.567723,
+        "maxlat": -6.2207093,
+        "maxlon": 106.5825761
+      },
+      "nodes": [
+        316229963,
+        7259969352,
+        7259969351,
+        7259969350,
+        316224133
+      ],
+      "geometry": [
+        {
+          "lat": -6.2207093,
+          "lon": 106.567723
+        },
+        {
+          "lat": -6.221011,
+          "lon": 106.5696594
+        },
+        {
+          "lat": -6.2211944,
+          "lon": 106.5711953
+        },
+        {
+          "lat": -6.2214448,
+          "lon": 106.5739207
+        },
+        {
+          "lat": -6.2222556,
+          "lon": 106.5825761
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.72",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615860,
+      "bounds": {
+        "minlat": -6.2222972,
+        "minlon": 106.6357778,
+        "maxlat": -6.2216935,
+        "maxlon": 106.6399321
+      },
+      "nodes": [
+        316224136,
+        7180803671,
+        316224137
+      ],
+      "geometry": [
+        {
+          "lat": -6.2222972,
+          "lon": 106.6357778
+        },
+        {
+          "lat": -6.2218652,
+          "lon": 106.6387477
+        },
+        {
+          "lat": -6.2216935,
+          "lon": 106.6399321
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12.93"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615863,
+      "bounds": {
+        "minlat": -6.2246918,
+        "minlon": 106.6188251,
+        "maxlat": -6.2239129,
+        "maxlon": 106.6243234
+      },
+      "nodes": [
+        860918076,
+        316224135
+      ],
+      "geometry": [
+        {
+          "lat": -6.2246918,
+          "lon": 106.6188251
+        },
+        {
+          "lat": -6.2239129,
+          "lon": 106.6243234
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "11.85"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615867,
+      "bounds": {
+        "minlat": -6.2211617,
+        "minlon": 106.6449932,
+        "maxlat": -6.216914,
+        "maxlon": 106.6709054
+      },
+      "nodes": [
+        2107528685,
+        316224167,
+        7037487197,
+        316224170,
+        7564669182,
+        6835837636,
+        316224171,
+        316224173
+      ],
+      "geometry": [
+        {
+          "lat": -6.216914,
+          "lon": 106.6709054
+        },
+        {
+          "lat": -6.2176199,
+          "lon": 106.6683108
+        },
+        {
+          "lat": -6.2181129,
+          "lon": 106.6660143
+        },
+        {
+          "lat": -6.2183502,
+          "lon": 106.6646028
+        },
+        {
+          "lat": -6.2187496,
+          "lon": 106.6617376
+        },
+        {
+          "lat": -6.2189748,
+          "lon": 106.6602329
+        },
+        {
+          "lat": -6.2194371,
+          "lon": 106.657004
+        },
+        {
+          "lat": -6.2211617,
+          "lon": 106.6449932
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "13.91"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615871,
+      "bounds": {
+        "minlat": -6.2231529,
+        "minlon": 106.6307958,
+        "maxlat": -6.2223338,
+        "maxlon": 106.6365784
+      },
+      "nodes": [
+        316224174,
+        7180803666,
+        7180803667,
+        7180803668,
+        860916594
+      ],
+      "geometry": [
+        {
+          "lat": -6.2223338,
+          "lon": 106.6365784
+        },
+        {
+          "lat": -6.2224278,
+          "lon": 106.6359475
+        },
+        {
+          "lat": -6.2225565,
+          "lon": 106.6350368
+        },
+        {
+          "lat": -6.2230824,
+          "lon": 106.6313066
+        },
+        {
+          "lat": -6.2231529,
+          "lon": 106.6307958
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "13.33"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615874,
+      "bounds": {
+        "minlat": -6.2211921,
+        "minlon": 106.5661339,
+        "maxlat": -6.2205434,
+        "maxlon": 106.5697668
+      },
+      "nodes": [
+        860932089,
+        11364469824,
+        316378492
+      ],
+      "geometry": [
+        {
+          "lat": -6.2211921,
+          "lon": 106.5697668
+        },
+        {
+          "lat": -6.2208619,
+          "lon": 106.5676819
+        },
+        {
+          "lat": -6.2205434,
+          "lon": 106.5661339
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "est_width": "8.05",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615881,
+      "bounds": {
+        "minlat": -6.2188321,
+        "minlon": 106.660086,
+        "maxlat": -6.2179589,
+        "maxlon": 106.6659715
+      },
+      "nodes": [
+        6835837616,
+        316224140,
+        316224141
+      ],
+      "geometry": [
+        {
+          "lat": -6.2188321,
+          "lon": 106.660086
+        },
+        {
+          "lat": -6.2181843,
+          "lon": 106.6645942
+        },
+        {
+          "lat": -6.2179589,
+          "lon": 106.6659715
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bus:lanes": "designated|yes|yes|yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "13.46"
+      }
+    },
+    {
+      "type": "way",
+      "id": 497615883,
+      "bounds": {
+        "minlat": -6.2223338,
+        "minlon": 106.6365784,
+        "maxlat": -6.2211617,
+        "maxlon": 106.6449932
+      },
+      "nodes": [
+        316224173,
+        7180803663,
+        7180803664,
+        7180803665,
+        316224174
+      ],
+      "geometry": [
+        {
+          "lat": -6.2211617,
+          "lon": 106.6449932
+        },
+        {
+          "lat": -6.2216732,
+          "lon": 106.6412187
+        },
+        {
+          "lat": -6.2219589,
+          "lon": 106.639203
+        },
+        {
+          "lat": -6.2221759,
+          "lon": 106.6376922
+        },
+        {
+          "lat": -6.2223338,
+          "lon": 106.6365784
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "13.62"
+      }
+    },
+    {
+      "type": "way",
+      "id": 509530220,
+      "bounds": {
+        "minlat": -6.1854848,
+        "minlon": 106.7825979,
+        "maxlat": -6.1854215,
+        "maxlon": 106.7828628
+      },
+      "nodes": [
+        4987555941,
+        4987555942
+      ],
+      "geometry": [
+        {
+          "lat": -6.1854215,
+          "lon": 106.7828628
+        },
+        {
+          "lat": -6.1854848,
+          "lon": 106.7825979
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lanes": "3",
+        "layer": "1",
+        "motorcar": "yes",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 509530221,
+      "bounds": {
+        "minlat": -6.1854215,
+        "minlon": 106.7828628,
+        "maxlat": -6.1840386,
+        "maxlon": 106.7916269
+      },
+      "nodes": [
+        1757800847,
+        316176018,
+        7246569130,
+        316176036,
+        7246569131,
+        316176035,
+        7246569132,
+        7246569133,
+        316176032,
+        4552245690,
+        4552245689,
+        316176031,
+        4987555941
+      ],
+      "geometry": [
+        {
+          "lat": -6.1840386,
+          "lon": 106.7916269
+        },
+        {
+          "lat": -6.1841521,
+          "lon": 106.7913543
+        },
+        {
+          "lat": -6.1848661,
+          "lon": 106.7894402
+        },
+        {
+          "lat": -6.1849678,
+          "lon": 106.7891217
+        },
+        {
+          "lat": -6.1850528,
+          "lon": 106.7887549
+        },
+        {
+          "lat": -6.1851048,
+          "lon": 106.7884089
+        },
+        {
+          "lat": -6.1851281,
+          "lon": 106.788189
+        },
+        {
+          "lat": -6.1851501,
+          "lon": 106.7874923
+        },
+        {
+          "lat": -6.1851991,
+          "lon": 106.7847146
+        },
+        {
+          "lat": -6.1852152,
+          "lon": 106.7843599
+        },
+        {
+          "lat": -6.1852701,
+          "lon": 106.7837922
+        },
+        {
+          "lat": -6.1853404,
+          "lon": 106.7832999
+        },
+        {
+          "lat": -6.1854215,
+          "lon": 106.7828628
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "8.52",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 509530222,
+      "bounds": {
+        "minlat": -6.1853135,
+        "minlon": 106.7828152,
+        "maxlat": -6.1839356,
+        "maxlon": 106.7915538
+      },
+      "nodes": [
+        4987555940,
+        316176066,
+        4552244488,
+        7080838196,
+        316176070,
+        10148232401,
+        316176074,
+        10148286924,
+        316176078,
+        10148232402,
+        316176082,
+        3266396603
+      ],
+      "geometry": [
+        {
+          "lat": -6.1853135,
+          "lon": 106.7828152
+        },
+        {
+          "lat": -6.1852121,
+          "lon": 106.7833537
+        },
+        {
+          "lat": -6.1851523,
+          "lon": 106.7837787
+        },
+        {
+          "lat": -6.1851028,
+          "lon": 106.7843447
+        },
+        {
+          "lat": -6.1850902,
+          "lon": 106.7846663
+        },
+        {
+          "lat": -6.1850234,
+          "lon": 106.7879488
+        },
+        {
+          "lat": -6.1849928,
+          "lon": 106.788429
+        },
+        {
+          "lat": -6.1849417,
+          "lon": 106.7887379
+        },
+        {
+          "lat": -6.1848781,
+          "lon": 106.7890029
+        },
+        {
+          "lat": -6.1847638,
+          "lon": 106.7893884
+        },
+        {
+          "lat": -6.1840489,
+          "lon": 106.7912707
+        },
+        {
+          "lat": -6.1839356,
+          "lon": 106.7915538
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "8.52",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 509530223,
+      "bounds": {
+        "minlat": -6.1853862,
+        "minlon": 106.7824706,
+        "maxlat": -6.1853135,
+        "maxlon": 106.7828152
+      },
+      "nodes": [
+        4987555939,
+        4987555940
+      ],
+      "geometry": [
+        {
+          "lat": -6.1853862,
+          "lon": 106.7824706
+        },
+        {
+          "lat": -6.1853135,
+          "lon": 106.7828152
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lanes": "3",
+        "layer": "1",
+        "motorcar": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "8.52"
+      }
+    },
+    {
+      "type": "way",
+      "id": 541272106,
+      "bounds": {
+        "minlat": -6.217895,
+        "minlon": 106.5578479,
+        "maxlat": -6.2177124,
+        "maxlon": 106.5582201
+      },
+      "nodes": [
+        1103760292,
+        316378495
+      ],
+      "geometry": [
+        {
+          "lat": -6.217895,
+          "lon": 106.5582201
+        },
+        {
+          "lat": -6.2177124,
+          "lon": 106.5578479
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "toll": "yes",
+        "width": "8.73"
+      }
+    },
+    {
+      "type": "way",
+      "id": 541272107,
+      "bounds": {
+        "minlat": -6.2194394,
+        "minlon": 106.5582201,
+        "maxlat": -6.217895,
+        "maxlon": 106.5620687
+      },
+      "nodes": [
+        316378493,
+        316378494,
+        1103760292
+      ],
+      "geometry": [
+        {
+          "lat": -6.2194394,
+          "lon": 106.5620687
+        },
+        {
+          "lat": -6.2187745,
+          "lon": 106.5601922
+        },
+        {
+          "lat": -6.217895,
+          "lon": 106.5582201
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "est_width": "8.93",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 541272108,
+      "bounds": {
+        "minlat": -6.2193172,
+        "minlon": 106.5582455,
+        "maxlat": -6.2177657,
+        "maxlon": 106.5621109
+      },
+      "nodes": [
+        1103760487,
+        316378489,
+        1782745259
+      ],
+      "geometry": [
+        {
+          "lat": -6.2177657,
+          "lon": 106.5582455
+        },
+        {
+          "lat": -6.2186417,
+          "lon": 106.5602392
+        },
+        {
+          "lat": -6.2193172,
+          "lon": 106.5621109
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "est_width": "8.40",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 541272109,
+      "bounds": {
+        "minlat": -6.2177657,
+        "minlon": 106.5578719,
+        "maxlat": -6.217578,
+        "maxlon": 106.5582455
+      },
+      "nodes": [
+        316378488,
+        1103760487
+      ],
+      "geometry": [
+        {
+          "lat": -6.217578,
+          "lon": 106.5578719
+        },
+        {
+          "lat": -6.2177657,
+          "lon": 106.5582455
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Tangerang–Merak",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Marga Mandalasakti",
+        "ref": "1",
+        "toll": "yes",
+        "width": "7.37"
+      }
+    },
+    {
+      "type": "way",
+      "id": 552553497,
+      "bounds": {
+        "minlat": -6.2064286,
+        "minlon": 106.700696,
+        "maxlat": -6.1962004,
+        "maxlon": 106.7137375
+      },
+      "nodes": [
+        5334742661,
+        4805444261,
+        4294586691,
+        7301485420,
+        5011568090,
+        316179384
+      ],
+      "geometry": [
+        {
+          "lat": -6.1962004,
+          "lon": 106.7137375
+        },
+        {
+          "lat": -6.1962831,
+          "lon": 106.713636
+        },
+        {
+          "lat": -6.1978243,
+          "lon": 106.7116421
+        },
+        {
+          "lat": -6.1984883,
+          "lon": 106.7107858
+        },
+        {
+          "lat": -6.2010622,
+          "lon": 106.7074855
+        },
+        {
+          "lat": -6.2064286,
+          "lon": 106.700696
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "13.75",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motor_vehicle": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 552553498,
+      "bounds": {
+        "minlat": -6.1961767,
+        "minlon": 106.713528,
+        "maxlat": -6.1944831,
+        "maxlon": 106.7156285
+      },
+      "nodes": [
+        4805444263,
+        5334742663,
+        6504010052
+      ],
+      "geometry": [
+        {
+          "lat": -6.1961767,
+          "lon": 106.713528
+        },
+        {
+          "lat": -6.196088,
+          "lon": 106.7136474
+        },
+        {
+          "lat": -6.1944831,
+          "lon": 106.7156285
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "9.03",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 552553499,
+      "bounds": {
+        "minlat": -6.2062041,
+        "minlon": 106.7006817,
+        "maxlat": -6.1961767,
+        "maxlon": 106.713528
+      },
+      "nodes": [
+        316179369,
+        4295053531,
+        4275853198,
+        7070396856,
+        7301485421,
+        4275852886,
+        4805444263
+      ],
+      "geometry": [
+        {
+          "lat": -6.2062041,
+          "lon": 106.7006817
+        },
+        {
+          "lat": -6.2019342,
+          "lon": 106.706088
+        },
+        {
+          "lat": -6.2015919,
+          "lon": 106.7065252
+        },
+        {
+          "lat": -6.2010239,
+          "lon": 106.7072932
+        },
+        {
+          "lat": -6.198403,
+          "lon": 106.7106302
+        },
+        {
+          "lat": -6.1976978,
+          "lon": 106.7115527
+        },
+        {
+          "lat": -6.1961767,
+          "lon": 106.713528
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "13.75",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxheight": "4.2",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 562382056,
+      "bounds": {
+        "minlat": -6.1897704,
+        "minlon": 106.7696833,
+        "maxlat": -6.1853862,
+        "maxlon": 106.7824706
+      },
+      "nodes": [
+        316176055,
+        12211886730,
+        7246489679,
+        12211886729,
+        7246489680,
+        316176058,
+        7246489681,
+        4552245693,
+        4552245691,
+        4987555939
+      ],
+      "geometry": [
+        {
+          "lat": -6.1897704,
+          "lon": 106.7696833
+        },
+        {
+          "lat": -6.1897307,
+          "lon": 106.7699513
+        },
+        {
+          "lat": -6.1896834,
+          "lon": 106.7702088
+        },
+        {
+          "lat": -6.1896273,
+          "lon": 106.7704891
+        },
+        {
+          "lat": -6.189554,
+          "lon": 106.7707814
+        },
+        {
+          "lat": -6.189258,
+          "lon": 106.7717866
+        },
+        {
+          "lat": -6.188954,
+          "lon": 106.7726858
+        },
+        {
+          "lat": -6.1862495,
+          "lon": 106.7797705
+        },
+        {
+          "lat": -6.1855948,
+          "lon": 106.7817255
+        },
+        {
+          "lat": -6.1853862,
+          "lon": 106.7824706
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "9.11",
+        "foot": "no",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcar": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "sidewalk": "no",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 562382058,
+      "bounds": {
+        "minlat": -6.1905798,
+        "minlon": 106.7569105,
+        "maxlat": -6.19054,
+        "maxlon": 106.7573613
+      },
+      "nodes": [
+        5421749491,
+        5421749490
+      ],
+      "geometry": [
+        {
+          "lat": -6.1905798,
+          "lon": 106.7569105
+        },
+        {
+          "lat": -6.19054,
+          "lon": 106.7573613
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "est_width": "12.12",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 562382059,
+      "bounds": {
+        "minlat": -6.1907013,
+        "minlon": 106.7568972,
+        "maxlat": -6.1906562,
+        "maxlon": 106.7573712
+      },
+      "nodes": [
+        5421749492,
+        5421749493
+      ],
+      "geometry": [
+        {
+          "lat": -6.1906562,
+          "lon": 106.7573712
+        },
+        {
+          "lat": -6.1907013,
+          "lon": 106.7568972
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 562382060,
+      "bounds": {
+        "minlat": -6.1898091,
+        "minlon": 106.7702161,
+        "maxlat": -6.1854848,
+        "maxlon": 106.7825979
+      },
+      "nodes": [
+        4987555942,
+        4552245694,
+        316176028,
+        4552245695,
+        7246491186,
+        7246491185,
+        7246489684,
+        7246489683,
+        6456880108,
+        11307556930
+      ],
+      "geometry": [
+        {
+          "lat": -6.1854848,
+          "lon": 106.7825979
+        },
+        {
+          "lat": -6.1856471,
+          "lon": 106.7819582
+        },
+        {
+          "lat": -6.1858699,
+          "lon": 106.7812446
+        },
+        {
+          "lat": -6.1863981,
+          "lon": 106.7796398
+        },
+        {
+          "lat": -6.1890487,
+          "lon": 106.772785
+        },
+        {
+          "lat": -6.189214,
+          "lon": 106.7723344
+        },
+        {
+          "lat": -6.189456,
+          "lon": 106.7715928
+        },
+        {
+          "lat": -6.1896593,
+          "lon": 106.7708371
+        },
+        {
+          "lat": -6.189748,
+          "lon": 106.7704937
+        },
+        {
+          "lat": -6.1898091,
+          "lon": 106.7702161
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "foot": "no",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "lit": "yes",
+        "motorcar": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "sidewalk": "no",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 572263913,
+      "bounds": {
+        "minlat": -6.1914183,
+        "minlon": 106.7457767,
+        "maxlat": -6.1913968,
+        "maxlon": 106.7461333
+      },
+      "nodes": [
+        5498123902,
+        5498123903
+      ],
+      "geometry": [
+        {
+          "lat": -6.1913968,
+          "lon": 106.7461333
+        },
+        {
+          "lat": -6.1914183,
+          "lon": 106.7457767
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "layer": "1",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 572263918,
+      "bounds": {
+        "minlat": -6.1912456,
+        "minlon": 106.74878,
+        "maxlat": -6.1907013,
+        "maxlon": 106.7568972
+      },
+      "nodes": [
+        5421749493,
+        7231889608,
+        7231889609,
+        11380886547
+      ],
+      "geometry": [
+        {
+          "lat": -6.1907013,
+          "lon": 106.7568972
+        },
+        {
+          "lat": -6.1909366,
+          "lon": 106.7541879
+        },
+        {
+          "lat": -6.1910993,
+          "lon": 106.7514105
+        },
+        {
+          "lat": -6.1912456,
+          "lon": 106.74878
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 572263922,
+      "bounds": {
+        "minlat": -6.1911367,
+        "minlon": 106.7482238,
+        "maxlat": -6.1905798,
+        "maxlon": 106.7569105
+      },
+      "nodes": [
+        6437704418,
+        7231889610,
+        5421749491
+      ],
+      "geometry": [
+        {
+          "lat": -6.1911367,
+          "lon": 106.7482238
+        },
+        {
+          "lat": -6.1909246,
+          "lon": 106.7520314
+        },
+        {
+          "lat": -6.1905798,
+          "lon": 106.7569105
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "13.67",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 572263925,
+      "bounds": {
+        "minlat": -6.1912895,
+        "minlon": 106.7457741,
+        "maxlat": -6.191264,
+        "maxlon": 106.7461547
+      },
+      "nodes": [
+        5498123905,
+        5498123904
+      ],
+      "geometry": [
+        {
+          "lat": -6.1912895,
+          "lon": 106.7457741
+        },
+        {
+          "lat": -6.191264,
+          "lon": 106.7461547
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bridge": "yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lanes": "3",
+        "layer": "1",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 675908500,
+      "bounds": {
+        "minlat": -6.1944831,
+        "minlon": 106.7156285,
+        "maxlat": -6.1918612,
+        "maxlon": 106.7195499
+      },
+      "nodes": [
+        6504010052,
+        5636613565,
+        316224151,
+        4275853195,
+        7259998133,
+        316179372,
+        6329957698
+      ],
+      "geometry": [
+        {
+          "lat": -6.1944831,
+          "lon": 106.7156285
+        },
+        {
+          "lat": -6.1940683,
+          "lon": 106.7161578
+        },
+        {
+          "lat": -6.1932157,
+          "lon": 106.7172725
+        },
+        {
+          "lat": -6.1926582,
+          "lon": 106.7180791
+        },
+        {
+          "lat": -6.192362,
+          "lon": 106.7185457
+        },
+        {
+          "lat": -6.1922118,
+          "lon": 106.7188176
+        },
+        {
+          "lat": -6.1918612,
+          "lon": 106.7195499
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.65",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686777828,
+      "bounds": {
+        "minlat": -6.1916339,
+        "minlon": 106.7364012,
+        "maxlat": -6.19163,
+        "maxlon": 106.7368569
+      },
+      "nodes": [
+        6437691108,
+        1663996343
+      ],
+      "geometry": [
+        {
+          "lat": -6.19163,
+          "lon": 106.7368569
+        },
+        {
+          "lat": -6.1916339,
+          "lon": 106.7364012
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "turn:lanes": "slight_left|through|through|through",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686777832,
+      "bounds": {
+        "minlat": -6.1916602,
+        "minlon": 106.7368569,
+        "maxlat": -6.1914183,
+        "maxlon": 106.7457767
+      },
+      "nodes": [
+        5498123903,
+        316179385,
+        316224156,
+        6437691108
+      ],
+      "geometry": [
+        {
+          "lat": -6.1914183,
+          "lon": 106.7457767
+        },
+        {
+          "lat": -6.1914921,
+          "lon": 106.7442684
+        },
+        {
+          "lat": -6.1916602,
+          "lon": 106.7404784
+        },
+        {
+          "lat": -6.19163,
+          "lon": 106.7368569
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "lit": "yes",
+        "maxheight": "4.2",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686777837,
+      "bounds": {
+        "minlat": -6.1909272,
+        "minlon": 106.7260449,
+        "maxlat": -6.1908873,
+        "maxlon": 106.7262686
+      },
+      "nodes": [
+        2408396731,
+        6437691111
+      ],
+      "geometry": [
+        {
+          "lat": -6.1909272,
+          "lon": 106.7262686
+        },
+        {
+          "lat": -6.1908873,
+          "lon": 106.7260449
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686777843,
+      "bounds": {
+        "minlat": -6.1910669,
+        "minlon": 106.7262686,
+        "maxlat": -6.1909272,
+        "maxlon": 106.7271786
+      },
+      "nodes": [
+        316179378,
+        2408396731
+      ],
+      "geometry": [
+        {
+          "lat": -6.1910669,
+          "lon": 106.7271786
+        },
+        {
+          "lat": -6.1909272,
+          "lon": 106.7262686
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686777850,
+      "bounds": {
+        "minlat": -6.1940097,
+        "minlon": 106.71652,
+        "maxlat": -6.1907483,
+        "maxlon": 106.7260449
+      },
+      "nodes": [
+        6437691111,
+        6647242340,
+        6647242336,
+        316179379,
+        6647242341,
+        5334354523,
+        5334354522,
+        316179380,
+        316224157,
+        5334354521,
+        5334354520,
+        8301757433,
+        8301757434,
+        8301757435,
+        8301757436,
+        11368227283
+      ],
+      "geometry": [
+        {
+          "lat": -6.1908873,
+          "lon": 106.7260449
+        },
+        {
+          "lat": -6.190798,
+          "lon": 106.7254829
+        },
+        {
+          "lat": -6.1907633,
+          "lon": 106.7251638
+        },
+        {
+          "lat": -6.1907483,
+          "lon": 106.7248358
+        },
+        {
+          "lat": -6.1907488,
+          "lon": 106.7243722
+        },
+        {
+          "lat": -6.1907606,
+          "lon": 106.7240691
+        },
+        {
+          "lat": -6.1908138,
+          "lon": 106.7236686
+        },
+        {
+          "lat": -6.1909842,
+          "lon": 106.7228102
+        },
+        {
+          "lat": -6.1915088,
+          "lon": 106.7210088
+        },
+        {
+          "lat": -6.1916837,
+          "lon": 106.7204753
+        },
+        {
+          "lat": -6.1923891,
+          "lon": 106.7189206
+        },
+        {
+          "lat": -6.1925318,
+          "lon": 106.7186475
+        },
+        {
+          "lat": -6.1928152,
+          "lon": 106.7182175
+        },
+        {
+          "lat": -6.1931672,
+          "lon": 106.7176757
+        },
+        {
+          "lat": -6.1935063,
+          "lon": 106.7171946
+        },
+        {
+          "lat": -6.1940097,
+          "lon": 106.71652
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686779559,
+      "bounds": {
+        "minlat": -6.1911739,
+        "minlon": 106.7475406,
+        "maxlat": -6.1911367,
+        "maxlon": 106.7482238
+      },
+      "nodes": [
+        316224154,
+        6437704418
+      ],
+      "geometry": [
+        {
+          "lat": -6.1911739,
+          "lon": 106.7475406
+        },
+        {
+          "lat": -6.1911367,
+          "lon": 106.7482238
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "10.15",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686779560,
+      "bounds": {
+        "minlat": -6.191264,
+        "minlon": 106.7461547,
+        "maxlat": -6.1911739,
+        "maxlon": 106.7475406
+      },
+      "nodes": [
+        5498123904,
+        316224154
+      ],
+      "geometry": [
+        {
+          "lat": -6.191264,
+          "lon": 106.7461547
+        },
+        {
+          "lat": -6.1911739,
+          "lon": 106.7475406
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "10.15",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686779561,
+      "bounds": {
+        "minlat": -6.1913968,
+        "minlon": 106.7461333,
+        "maxlat": -6.19129,
+        "maxlon": 106.747995
+      },
+      "nodes": [
+        316224155,
+        5498123902
+      ],
+      "geometry": [
+        {
+          "lat": -6.19129,
+          "lon": 106.747995
+        },
+        {
+          "lat": -6.1913968,
+          "lon": 106.7461333
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686779562,
+      "bounds": {
+        "minlat": -6.19129,
+        "minlon": 106.747995,
+        "maxlat": -6.1912702,
+        "maxlon": 106.7483379
+      },
+      "nodes": [
+        6437704419,
+        316224155
+      ],
+      "geometry": [
+        {
+          "lat": -6.1912702,
+          "lon": 106.7483379
+        },
+        {
+          "lat": -6.19129,
+          "lon": 106.747995
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "turn:lanes": "slight_left|||",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 688533089,
+      "bounds": {
+        "minlat": -6.1898519,
+        "minlon": 106.7689384,
+        "maxlat": -6.1897704,
+        "maxlon": 106.7696833
+      },
+      "nodes": [
+        332526386,
+        7080838195,
+        316176055
+      ],
+      "geometry": [
+        {
+          "lat": -6.1898519,
+          "lon": 106.7689384
+        },
+        {
+          "lat": -6.1898193,
+          "lon": 106.7692687
+        },
+        {
+          "lat": -6.1897704,
+          "lon": 106.7696833
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "14.12",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcar": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 688533090,
+      "bounds": {
+        "minlat": -6.1899944,
+        "minlon": 106.7658315,
+        "maxlat": -6.1898519,
+        "maxlon": 106.7689384
+      },
+      "nodes": [
+        6456863549,
+        4588029240,
+        332526386
+      ],
+      "geometry": [
+        {
+          "lat": -6.1899944,
+          "lon": 106.7658315
+        },
+        {
+          "lat": -6.1898897,
+          "lon": 106.7683206
+        },
+        {
+          "lat": -6.1898519,
+          "lon": 106.7689384
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "9.06",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcar": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 688533091,
+      "bounds": {
+        "minlat": -6.190004,
+        "minlon": 106.7652893,
+        "maxlat": -6.1899944,
+        "maxlon": 106.7658315
+      },
+      "nodes": [
+        6456863550,
+        6456863549
+      ],
+      "geometry": [
+        {
+          "lat": -6.190004,
+          "lon": 106.7652893
+        },
+        {
+          "lat": -6.1899944,
+          "lon": 106.7658315
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.03",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 688533092,
+      "bounds": {
+        "minlat": -6.1900209,
+        "minlon": 106.7643435,
+        "maxlat": -6.190004,
+        "maxlon": 106.7652893
+      },
+      "nodes": [
+        332526380,
+        7243933891,
+        6456863550
+      ],
+      "geometry": [
+        {
+          "lat": -6.1900209,
+          "lon": 106.7643435
+        },
+        {
+          "lat": -6.1900187,
+          "lon": 106.7644663
+        },
+        {
+          "lat": -6.190004,
+          "lon": 106.7652893
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "9.15",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 688533093,
+      "bounds": {
+        "minlat": -6.1900913,
+        "minlon": 106.7627227,
+        "maxlat": -6.1900209,
+        "maxlon": 106.7643435
+      },
+      "nodes": [
+        6456863551,
+        332526380
+      ],
+      "geometry": [
+        {
+          "lat": -6.1900913,
+          "lon": 106.7627227
+        },
+        {
+          "lat": -6.1900209,
+          "lon": 106.7643435
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "14.10",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 688533094,
+      "bounds": {
+        "minlat": -6.19054,
+        "minlon": 106.7573613,
+        "maxlat": -6.1900913,
+        "maxlon": 106.7627227
+      },
+      "nodes": [
+        5421749490,
+        316176047,
+        6456863551
+      ],
+      "geometry": [
+        {
+          "lat": -6.19054,
+          "lon": 106.7573613
+        },
+        {
+          "lat": -6.1901767,
+          "lon": 106.7613923
+        },
+        {
+          "lat": -6.1900913,
+          "lon": 106.7627227
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "8.61"
+      }
+    },
+    {
+      "type": "way",
+      "id": 688534599,
+      "bounds": {
+        "minlat": -6.1899775,
+        "minlon": 106.7690614,
+        "maxlat": -6.1899127,
+        "maxlon": 106.7696281
+      },
+      "nodes": [
+        6456880107,
+        7080838197,
+        316176025
+      ],
+      "geometry": [
+        {
+          "lat": -6.1899127,
+          "lon": 106.7696281
+        },
+        {
+          "lat": -6.1899493,
+          "lon": 106.7693766
+        },
+        {
+          "lat": -6.1899775,
+          "lon": 106.7690614
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motorcar": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "turn:lanes": "slight_left|||",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 688534600,
+      "bounds": {
+        "minlat": -6.1901392,
+        "minlon": 106.7656128,
+        "maxlat": -6.1899775,
+        "maxlon": 106.7690614
+      },
+      "nodes": [
+        316176025,
+        9013281334,
+        332526146
+      ],
+      "geometry": [
+        {
+          "lat": -6.1899775,
+          "lon": 106.7690614
+        },
+        {
+          "lat": -6.190028,
+          "lon": 106.7683403
+        },
+        {
+          "lat": -6.1901392,
+          "lon": 106.7656128
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 749335272,
+      "bounds": {
+        "minlat": -6.2179589,
+        "minlon": 106.6659715,
+        "maxlat": -6.2170309,
+        "maxlon": 106.669943
+      },
+      "nodes": [
+        316224141,
+        7564669183,
+        2107528693
+      ],
+      "geometry": [
+        {
+          "lat": -6.2179589,
+          "lon": 106.6659715
+        },
+        {
+          "lat": -6.2175763,
+          "lon": 106.6678443
+        },
+        {
+          "lat": -6.2170309,
+          "lon": 106.669943
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "11.4",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 757053958,
+      "bounds": {
+        "minlat": -6.2216965,
+        "minlon": 106.5697668,
+        "maxlat": -6.2211921,
+        "maxlon": 106.575
+      },
+      "nodes": [
+        7070270771,
+        11364469823,
+        860932089
+      ],
+      "geometry": [
+        {
+          "lat": -6.2216965,
+          "lon": 106.575
+        },
+        {
+          "lat": -6.2213488,
+          "lon": 106.571186
+        },
+        {
+          "lat": -6.2211921,
+          "lon": 106.5697668
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "destination:lanes": "Bitung;Curug|Cikupa;Balaraja;Merak|Cikupa;Balaraja;Merak|Cikupa;Balaraja;Merak",
+        "est_width": "13.95",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 757091823,
+      "bounds": {
+        "minlat": -6.2248539,
+        "minlon": 106.6188837,
+        "maxlat": -6.2244963,
+        "maxlon": 106.621333
+      },
+      "nodes": [
+        7070720222,
+        316224176
+      ],
+      "geometry": [
+        {
+          "lat": -6.2244963,
+          "lon": 106.621333
+        },
+        {
+          "lat": -6.2248539,
+          "lon": 106.6188837
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "destination:lanes": "Karawaci;Binong;Legok|Bitung;Cikupa;Merak|Bitung;Cikupa;Merak|Bitung;Cikupa;Merak",
+        "est_width": "13.05",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 758393269,
+      "bounds": {
+        "minlat": -6.1916339,
+        "minlon": 106.731924,
+        "maxlat": -6.1915626,
+        "maxlon": 106.7364012
+      },
+      "nodes": [
+        1663996343,
+        316179377
+      ],
+      "geometry": [
+        {
+          "lat": -6.1916339,
+          "lon": 106.7364012
+        },
+        {
+          "lat": -6.1915626,
+          "lon": 106.731924
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "lit": "yes",
+        "maxheight": "4.2",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 758396416,
+      "bounds": {
+        "minlat": -6.1962004,
+        "minlon": 106.7137375,
+        "maxlat": -6.1945055,
+        "maxlon": 106.7159274
+      },
+      "nodes": [
+        6615473508,
+        5334742661
+      ],
+      "geometry": [
+        {
+          "lat": -6.1945055,
+          "lon": 106.7159274
+        },
+        {
+          "lat": -6.1962004,
+          "lon": 106.7137375
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "destination:lanes": "Kunciran;Tangerang;Merak|||",
+        "est_width": "12.95",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motor_vehicle": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 760267080,
+      "bounds": {
+        "minlat": -6.2250649,
+        "minlon": 106.5825761,
+        "maxlat": -6.2222556,
+        "maxlon": 106.6188251
+      },
+      "nodes": [
+        316224133,
+        12520070997,
+        12520070996,
+        12520070994,
+        12520070993,
+        12802004737,
+        12520070992,
+        12520070991,
+        860918076
+      ],
+      "geometry": [
+        {
+          "lat": -6.2222556,
+          "lon": 106.5825761
+        },
+        {
+          "lat": -6.2234761,
+          "lon": 106.5957977
+        },
+        {
+          "lat": -6.2244111,
+          "lon": 106.6055874
+        },
+        {
+          "lat": -6.2249686,
+          "lon": 106.6118782
+        },
+        {
+          "lat": -6.2250432,
+          "lon": 106.6131337
+        },
+        {
+          "lat": -6.2250649,
+          "lon": 106.6144824
+        },
+        {
+          "lat": -6.2250353,
+          "lon": 106.6155608
+        },
+        {
+          "lat": -6.2249088,
+          "lon": 106.6171934
+        },
+        {
+          "lat": -6.2246918,
+          "lon": 106.6188251
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.68",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 762933185,
+      "bounds": {
+        "minlat": -6.2216935,
+        "minlon": 106.6399321,
+        "maxlat": -6.2206403,
+        "maxlon": 106.6474067
+      },
+      "nodes": [
+        316224137,
+        7180803669,
+        316224138,
+        7129040978
+      ],
+      "geometry": [
+        {
+          "lat": -6.2216935,
+          "lon": 106.6399321
+        },
+        {
+          "lat": -6.2215039,
+          "lon": 106.6412723
+        },
+        {
+          "lat": -6.2211958,
+          "lon": 106.6434689
+        },
+        {
+          "lat": -6.2206403,
+          "lon": 106.6474067
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "13.45",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1096131604,
+      "bounds": {
+        "minlat": -6.1918612,
+        "minlon": 106.7195499,
+        "maxlat": -6.190726,
+        "maxlon": 106.7232299
+      },
+      "nodes": [
+        6329957698,
+        316224152,
+        4275852884,
+        316179373,
+        11331364171
+      ],
+      "geometry": [
+        {
+          "lat": -6.1918612,
+          "lon": 106.7195499
+        },
+        {
+          "lat": -6.1915232,
+          "lon": 106.7204196
+        },
+        {
+          "lat": -6.1913466,
+          "lon": 106.7209581
+        },
+        {
+          "lat": -6.1908203,
+          "lon": 106.7227978
+        },
+        {
+          "lat": -6.190726,
+          "lon": 106.7232299
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "8.97",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1100701221,
+      "bounds": {
+        "minlat": -6.2119235,
+        "minlon": 106.6881916,
+        "maxlat": -6.2117768,
+        "maxlon": 106.6887083
+      },
+      "nodes": [
+        316224145,
+        10073750630
+      ],
+      "geometry": [
+        {
+          "lat": -6.2119235,
+          "lon": 106.6881916
+        },
+        {
+          "lat": -6.2117768,
+          "lon": 106.6887083
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.1",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxheight": "4.2",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1100701222,
+      "bounds": {
+        "minlat": -6.2117768,
+        "minlon": 106.6887083,
+        "maxlat": -6.2096982,
+        "maxlon": 106.6952367
+      },
+      "nodes": [
+        10073750630,
+        316224146,
+        4275853201,
+        316224147
+      ],
+      "geometry": [
+        {
+          "lat": -6.2117768,
+          "lon": 106.6887083
+        },
+        {
+          "lat": -6.2106922,
+          "lon": 106.6925302
+        },
+        {
+          "lat": -6.2102613,
+          "lon": 106.6938403
+        },
+        {
+          "lat": -6.2096982,
+          "lon": 106.6952367
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.1",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1100701223,
+      "bounds": {
+        "minlat": -6.2120936,
+        "minlon": 106.6882017,
+        "maxlat": -6.2119482,
+        "maxlon": 106.68872
+      },
+      "nodes": [
+        10073750632,
+        10073750631
+      ],
+      "geometry": [
+        {
+          "lat": -6.2119482,
+          "lon": 106.68872
+        },
+        {
+          "lat": -6.2120936,
+          "lon": 106.6882017
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "11.81",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "no",
+        "maxheight": "4.2",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1100701224,
+      "bounds": {
+        "minlat": -6.2119482,
+        "minlon": 106.68872,
+        "maxlat": -6.2098172,
+        "maxlon": 106.695342
+      },
+      "nodes": [
+        4275853193,
+        6322201921,
+        316224163,
+        6322201920,
+        10073750632
+      ],
+      "geometry": [
+        {
+          "lat": -6.2098172,
+          "lon": 106.695342
+        },
+        {
+          "lat": -6.2102342,
+          "lon": 106.6943827
+        },
+        {
+          "lat": -6.2105792,
+          "lon": 106.6933828
+        },
+        {
+          "lat": -6.2115434,
+          "lon": 106.6901636
+        },
+        {
+          "lat": -6.2119482,
+          "lon": 106.68872
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "11.81",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "no",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1220281935,
+      "bounds": {
+        "minlat": -6.1899127,
+        "minlon": 106.7696281,
+        "maxlat": -6.1898091,
+        "maxlon": 106.7702161
+      },
+      "nodes": [
+        11307556930,
+        6456880107
+      ],
+      "geometry": [
+        {
+          "lat": -6.1898091,
+          "lon": 106.7702161
+        },
+        {
+          "lat": -6.1899127,
+          "lon": 106.7696281
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "foot": "no",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motorcar": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "sidewalk": "no",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "turn:lanes": "slight_left|||",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1221793438,
+      "bounds": {
+        "minlat": -6.190726,
+        "minlon": 106.7232299,
+        "maxlat": -6.1906002,
+        "maxlon": 106.7240156
+      },
+      "nodes": [
+        11331364171,
+        6647242342,
+        316179374
+      ],
+      "geometry": [
+        {
+          "lat": -6.190726,
+          "lon": 106.7232299
+        },
+        {
+          "lat": -6.1906566,
+          "lon": 106.7236268
+        },
+        {
+          "lat": -6.1906002,
+          "lon": 106.7240156
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "8.97",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "turn:lanes": "slight_left|through|through|through"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1225407131,
+      "bounds": {
+        "minlat": -6.2224629,
+        "minlon": 106.634755,
+        "maxlat": -6.2222972,
+        "maxlon": 106.6357778
+      },
+      "nodes": [
+        11363976341,
+        316224136
+      ],
+      "geometry": [
+        {
+          "lat": -6.2224629,
+          "lon": 106.634755
+        },
+        {
+          "lat": -6.2222972,
+          "lon": 106.6357778
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "14.65",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "5",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "turn:lanes": "slight_left|through|through|through|through"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1225422740,
+      "bounds": {
+        "minlat": -6.2189421,
+        "minlon": 106.6593804,
+        "maxlat": -6.2188321,
+        "maxlon": 106.660086
+      },
+      "nodes": [
+        11364096000,
+        6835837616
+      ],
+      "geometry": [
+        {
+          "lat": -6.2189421,
+          "lon": 106.6593804
+        },
+        {
+          "lat": -6.2188321,
+          "lon": 106.660086
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bus:lanes": "|designated|yes|yes|yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "5",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "turn:lanes": "slight_left|through|through|through|through",
+        "width": "13.46"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1225422741,
+      "bounds": {
+        "minlat": -6.2206403,
+        "minlon": 106.6474067,
+        "maxlat": -6.2189421,
+        "maxlon": 106.6593804
+      },
+      "nodes": [
+        7129040978,
+        316224139,
+        11364096000
+      ],
+      "geometry": [
+        {
+          "lat": -6.2206403,
+          "lon": 106.6474067
+        },
+        {
+          "lat": -6.2201283,
+          "lon": 106.6510225
+        },
+        {
+          "lat": -6.2189421,
+          "lon": 106.6593804
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "bus:lanes": "designated|yes|yes|yes",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "13.46"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1225862055,
+      "bounds": {
+        "minlat": -6.1945055,
+        "minlon": 106.7159274,
+        "maxlat": -6.1940097,
+        "maxlon": 106.71652
+      },
+      "nodes": [
+        11368227283,
+        5636613567,
+        6615473508
+      ],
+      "geometry": [
+        {
+          "lat": -6.1940097,
+          "lon": 106.71652
+        },
+        {
+          "lat": -6.1941928,
+          "lon": 106.7162746
+        },
+        {
+          "lat": -6.1945055,
+          "lon": 106.7159274
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "5",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "turn:lanes": "slight_left||||",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1227294306,
+      "bounds": {
+        "minlat": -6.1912702,
+        "minlon": 106.7483379,
+        "maxlat": -6.1912456,
+        "maxlon": 106.74878
+      },
+      "nodes": [
+        11380886547,
+        6437704419
+      ],
+      "geometry": [
+        {
+          "lat": -6.1912456,
+          "lon": 106.74878
+        },
+        {
+          "lat": -6.1912702,
+          "lon": 106.7483379
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "turn:lanes": "slight_left|||",
+        "width": "12"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1346680818,
+      "bounds": {
+        "minlat": -6.2155292,
+        "minlon": 106.6752895,
+        "maxlat": -6.2140367,
+        "maxlon": 106.6805497
+      },
+      "nodes": [
+        4355290654,
+        316224143,
+        316224144
+      ],
+      "geometry": [
+        {
+          "lat": -6.2155292,
+          "lon": 106.6752895
+        },
+        {
+          "lat": -6.2154127,
+          "lon": 106.675701
+        },
+        {
+          "lat": -6.2140367,
+          "lon": 106.6805497
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.1",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1346680820,
+      "bounds": {
+        "minlat": -6.2170309,
+        "minlon": 106.669943,
+        "maxlat": -6.2155292,
+        "maxlon": 106.6752895
+      },
+      "nodes": [
+        2107528693,
+        316224142,
+        4355290654
+      ],
+      "geometry": [
+        {
+          "lat": -6.2170309,
+          "lon": 106.669943
+        },
+        {
+          "lat": -6.2167545,
+          "lon": 106.6708523
+        },
+        {
+          "lat": -6.2155292,
+          "lon": 106.6752895
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "12.1",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1346687584,
+      "bounds": {
+        "minlat": -6.2146135,
+        "minlon": 106.6791752,
+        "maxlat": -6.2130159,
+        "maxlon": 106.6849563
+      },
+      "nodes": [
+        3692840761,
+        316224165
+      ],
+      "geometry": [
+        {
+          "lat": -6.2130159,
+          "lon": 106.6849563
+        },
+        {
+          "lat": -6.2146135,
+          "lon": 106.6791752
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "11.81",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1346687585,
+      "bounds": {
+        "minlat": -6.2130159,
+        "minlon": 106.6849563,
+        "maxlat": -6.2120936,
+        "maxlon": 106.6882017
+      },
+      "nodes": [
+        10073750631,
+        316224164,
+        3692840761
+      ],
+      "geometry": [
+        {
+          "lat": -6.2120936,
+          "lon": 106.6882017
+        },
+        {
+          "lat": -6.2124617,
+          "lon": 106.6868892
+        },
+        {
+          "lat": -6.2130159,
+          "lon": 106.6849563
+        }
+      ],
+      "tags": {
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "est_width": "11.81",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "4",
+        "lit": "no",
+        "maxspeed": "100",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "surface": "asphalt",
+        "toll": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1346687587,
+      "bounds": {
+        "minlat": -6.1906562,
+        "minlon": 106.7573712,
+        "maxlat": -6.1901392,
+        "maxlon": 106.7656128
+      },
+      "nodes": [
+        332526146,
+        316176023,
+        5421749492
+      ],
+      "geometry": [
+        {
+          "lat": -6.1901392,
+          "lon": 106.7656128
+        },
+        {
+          "lat": -6.1902897,
+          "lon": 106.7614727
+        },
+        {
+          "lat": -6.1906562,
+          "lon": 106.7573712
+        }
+      ],
+      "tags": {
+        "access": "yes",
+        "alt_name": "Jalan Tol Jakarta–Tangerang",
+        "highway": "motorway",
+        "int_ref": "AH2",
+        "lane_markings": "yes",
+        "lanes": "3",
+        "lit": "yes",
+        "motorcycle": "no",
+        "name": "Jalan Tol Jakarta–Merak",
+        "oneway": "yes",
+        "operator": "PT Jasa Marga",
+        "ref": "1",
+        "smoothness": "good",
+        "source": "HOT_InAWARESurvey_2017",
+        "surface": "asphalt",
+        "toll": "yes",
+        "width": "12"
+      }
+    }
+  ]
+}

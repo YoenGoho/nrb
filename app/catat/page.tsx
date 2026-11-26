@@ -177,9 +177,14 @@ export default function Catat(props: PageProps<"/catat">) {
       <div className="mx-auto max-w-2xl">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-sm text-[#4A5568] underline">Beranda</Link>
-          <Link href="/riwayat" className="text-sm font-semibold text-[#14213D] underline">
-            Riwayat inspeksi
-          </Link>
+          <span className="flex gap-4">
+            <Link href="/kalibrasi" className="text-sm font-semibold text-[#14213D] underline">
+              Kalibrasi
+            </Link>
+            <Link href="/riwayat" className="text-sm font-semibold text-[#14213D] underline">
+              Riwayat inspeksi
+            </Link>
+          </span>
         </div>
         <h1 className="mt-3 text-2xl font-semibold">Catat temuan</h1>
         <Suspense fallback={<p className="mt-6 text-sm text-[#4A5568]">Memuat...</p>}>

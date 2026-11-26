@@ -60,6 +60,12 @@ async function StatusMasuk() {
       >
         Riwayat
       </Link>
+      <Link
+        href="/kalibrasi"
+        className="rounded-xl border border-[#4A5568] px-3 py-2 text-sm font-semibold text-[#E3E8F0]"
+      >
+        Kalibrasi
+      </Link>
       <TombolKeluar />
     </div>
   );

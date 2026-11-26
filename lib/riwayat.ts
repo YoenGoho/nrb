@@ -7,7 +7,7 @@ type KlienSupabase = Awaited<ReturnType<typeof createClient>>;
 // tetapi kegagalan dicatat di log server supaya bisa ditelusuri.
 export async function catatRiwayat(
   supabase: KlienSupabase,
-  tabel: "inspeksi" | "temuan",
+  tabel: "inspeksi" | "temuan" | "titik_kalibrasi",
   barisId: number,
   aksi: string,
   keterangan?: string | null,
