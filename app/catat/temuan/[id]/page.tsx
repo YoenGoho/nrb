@@ -4,6 +4,7 @@ import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { satu, tujuanAman } from "@/lib/param";
 import { KOLOM_TEMUAN, kodeTemuan, namaJenis, type BarisTemuan } from "@/lib/temuan";
+import { ambilAcuan } from "@/lib/kalibrasi";
 import { DaftarRiwayatAksi, type BarisRiwayat } from "@/app/komponen/DaftarRiwayatAksi";
 import { IsianTemuan, type JenisKatalog } from "../../IsianTemuan";
 import { ubahTemuan } from "../../aksi";
@@ -37,7 +38,7 @@ async function FormUbah({ params, searchParams }: {
     );
   }
 
-  const [{ data: katalog }, { data: riwayat }] = await Promise.all([
+  const [{ data: katalog }, { data: riwayat }, acuan] = await Promise.all([
     supabase
       .from("jenis_temuan")
       .select("id, kategori, nama, sering")
@@ -50,6 +51,7 @@ async function FormUbah({ params, searchParams }: {
       .eq("tabel", "temuan")
       .eq("baris_id", t.id)
       .order("dibuat_pada", { ascending: false }),
+    ambilAcuan(supabase),
   ]);
 
   return (
@@ -67,7 +69,7 @@ async function FormUbah({ params, searchParams }: {
           </p>
         ) : null}
 
-        <IsianTemuan katalog={(katalog ?? []) as JenisKatalog[]} awal={t} />
+        <IsianTemuan katalog={(katalog ?? []) as JenisKatalog[]} awal={t} acuan={acuan} />
 
         <button type="submit" className={tombolUtama}>Simpan perubahan</button>
         <p className="-mt-3 text-xs text-[#4A5568]">

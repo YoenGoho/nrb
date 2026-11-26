@@ -23,6 +23,11 @@ export type BarisTemuan = {
   status: string;
   dibuat_pada: string;
   ditambahkan_setelah_tutup: boolean;
+  gps_lat: number | null;
+  gps_lon: number | null;
+  gps_akurasi_m: number | null;
+  gps_sta_m: number | null;
+  gps_diambil_pada: string | null;
   jenis_temuan: JenisRingkas | JenisRingkas[] | null;
   inspeksi: RentangSesi | RentangSesi[] | null;
 };
@@ -34,6 +39,7 @@ export type RentangSesi = { sta_awal_m: number; sta_akhir_m: number };
 export const KOLOM_TEMUAN =
   "id, inspeksi_id, jenis_temuan_id, jenis_lain, kategori_lain, tingkat, tipe_lokasi, sta_awal_m, sta_akhir_m, arah, lajur, " +
   "panjang_m, lebar_m, luas_m2, jumlah, catatan, status, dibuat_pada, ditambahkan_setelah_tutup, " +
+  "gps_lat, gps_lon, gps_akurasi_m, gps_sta_m, gps_diambil_pada, " +
   "jenis_temuan(nama, kategori), inspeksi(sta_awal_m, sta_akhir_m)";
 
 // Kategori tambahan untuk jenis yang diketik manual dan tidak cocok di kategori mana pun

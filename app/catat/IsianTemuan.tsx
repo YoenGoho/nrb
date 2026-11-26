@@ -1,7 +1,11 @@
 // Kumpulan isian temuan yang dipakai bersama oleh form tambah dan form ubah.
 // Semua pilihan memakai tombol radio yang didandani, tanpa JavaScript tambahan.
+// Satu-satunya bagian yang memakai JavaScript adalah tombol Ambil posisi dari GPS.
 
 import { KATEGORI_LAIN } from "@/lib/temuan";
+import { formatSta } from "@/lib/sta";
+import type { Acuan } from "@/lib/ruas";
+import { TombolAmbilPosisi } from "./TombolAmbilPosisi";
 
 export type JenisKatalog = { id: number; kategori: string; nama: string; sering: boolean };
 
@@ -19,6 +23,8 @@ export type NilaiAwal = {
   lebar_m?: number | null;
   jumlah?: number | null;
   catatan?: string | null;
+  gps_akurasi_m?: number | null;
+  gps_sta_m?: number | null;
 };
 
 // Nilai khusus tombol "Lainnya". Bukan nomor katalog, jadi server tahu ini ketikan manual.
@@ -57,7 +63,11 @@ function pecahSta(meter: number | null | undefined) {
   return { km: Math.floor(meter / 1000), m: meter % 1000 };
 }
 
-export function IsianTemuan({ katalog, awal }: { katalog: JenisKatalog[]; awal: NilaiAwal }) {
+export function IsianTemuan({ katalog, awal, acuan }: {
+  katalog: JenisKatalog[];
+  awal: NilaiAwal;
+  acuan: Acuan[]; // titik kalibrasi untuk menghitung STA dari GPS
+}) {
   const sering = katalog.filter((j) => j.sering);
   const lainnya = katalog.filter((j) => !j.sering);
   const kategoriUrut = Array.from(new Set(lainnya.map((j) => j.kategori)));
@@ -177,6 +187,13 @@ export function IsianTemuan({ katalog, awal }: { katalog: JenisKatalog[]; awal: 
           <input className={kotak} type="number" name="m_awal" min="0" max="999"
                  placeholder="meter" aria-label="Meter awal" defaultValue={staAwal.m ?? 0} />
         </div>
+        <TombolAmbilPosisi acuan={acuan} target="awal" simpanKoordinat />
+        {awal.gps_sta_m !== null && awal.gps_sta_m !== undefined ? (
+          <p className="mt-1 text-xs text-[#4A5568]">
+            Posisi GPS tersimpan: STA hitungan {formatSta(awal.gps_sta_m)}, akurasi{" "}
+            {Math.round(Number(awal.gps_akurasi_m ?? 0))} m. Ambil lagi hanya kalau ingin memperbarui.
+          </p>
+        ) : null}
       </div>
 
       <div>
@@ -188,6 +205,7 @@ export function IsianTemuan({ katalog, awal }: { katalog: JenisKatalog[]; awal: 
           <input className={kotak} type="number" name="m_akhir" min="0" max="999"
                  placeholder="meter" aria-label="Meter akhir" defaultValue={staAkhir.m} />
         </div>
+        <TombolAmbilPosisi acuan={acuan} target="akhir" simpanKoordinat={false} />
       </div>
 
       <fieldset>

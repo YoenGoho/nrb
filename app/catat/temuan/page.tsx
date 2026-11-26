@@ -6,6 +6,7 @@ import { formatKm } from "@/lib/sta";
 import { KOLOM_SESI, keteranganWaktuSesi, type BarisSesi } from "@/lib/inspeksi";
 import { satu, tujuanAman } from "@/lib/param";
 import { kodeTemuan } from "@/lib/temuan";
+import { ambilAcuan } from "@/lib/kalibrasi";
 import { IsianTemuan, PILIHAN_LAINNYA, type JenisKatalog } from "../IsianTemuan";
 import { tambahTemuan } from "../aksi";
 
@@ -79,12 +80,16 @@ async function FormTambah({ searchParams }: { searchParams: PageProps<"/catat/te
   const sesiDitutup = sesi.status === "Selesai";
   const kembali = tujuanAman(satu(sp.kembali), sesiDitutup ? `/riwayat/${sesi.id}` : "/catat");
 
-  const { data: katalog } = await supabase
-    .from("jenis_temuan")
-    .select("id, kategori, nama, sering")
-    .eq("aktif", true)
-    .order("kategori")
-    .order("nama");
+  // Katalog jenis dan titik kalibrasi diambil bersamaan, supaya halaman tidak menunggu dua kali
+  const [{ data: katalog }, acuan] = await Promise.all([
+    supabase
+      .from("jenis_temuan")
+      .select("id, kategori, nama, sering")
+      .eq("aktif", true)
+      .order("kategori")
+      .order("nama"),
+    ambilAcuan(supabase),
+  ]);
 
   // Pilihan jenis yang dibawa dari temuan sebelumnya: nomor katalog, atau ketikan manual
   const jenisDibawaTeks = satu(sp.jenis);
@@ -126,6 +131,7 @@ async function FormTambah({ searchParams }: { searchParams: PageProps<"/catat/te
 
       <IsianTemuan
         katalog={(katalog ?? []) as JenisKatalog[]}
+        acuan={acuan}
         awal={{
           jenis_temuan_id: Number.isInteger(jenisDibawa) && jenisDibawa > 0 ? jenisDibawa : null,
           jenis_lain: jenisManualDibawa ? (satu(sp.jenis_lain) ?? null) : null,

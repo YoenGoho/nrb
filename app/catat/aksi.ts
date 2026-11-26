@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { keMeter } from "@/lib/sta";
+import { formatSta, keMeter } from "@/lib/sta";
 import { tujuanAman } from "@/lib/param";
 import { angka, kembaliDenganGalat, teks } from "@/lib/form";
 import { catatRiwayat } from "@/lib/riwayat";
@@ -161,6 +161,39 @@ async function bacaIsianTemuan(
   return { isian, cocokKatalog };
 }
 
+// Posisi GPS yang dikirim tombol Ambil posisi bersama form temuan
+type IsianGps = {
+  gps_lat: number;
+  gps_lon: number;
+  gps_akurasi_m: number;
+  gps_sta_m: number;
+  gps_diambil_pada: string;
+};
+
+// Membaca posisi GPS dari form. Hasilnya null kalau tombol GPS tidak dipakai,
+// atau kalau isiannya tidak masuk akal (posisi semacam itu tidak disimpan).
+function bacaGps(fd: FormData): IsianGps | null {
+  if (teks(fd, "gps_baru") !== "1") return null;
+
+  const lat = angka(fd, "gps_lat");
+  const lon = angka(fd, "gps_lon");
+  const akurasi = angka(fd, "gps_akurasi_m");
+  const sta = angka(fd, "gps_sta_m");
+  const waktu = new Date(teks(fd, "gps_diambil_pada") ?? "");
+
+  if (lat === null || lon === null || akurasi === null || sta === null) return null;
+  if (lat < -90 || lat > 90 || lon < -180 || lon > 180 || akurasi < 0 || sta < 0) return null;
+  if (Number.isNaN(waktu.getTime())) return null;
+
+  return {
+    gps_lat: lat,
+    gps_lon: lon,
+    gps_akurasi_m: Math.round(akurasi * 10) / 10,
+    gps_sta_m: Math.round(sta),
+    gps_diambil_pada: waktu.toISOString(),
+  };
+}
+
 // =========================================================
 // Inspeksi
 // =========================================================
@@ -297,6 +330,7 @@ export async function tambahTemuan(formData: FormData) {
 
   const supabase = await createClient();
   const { isian, cocokKatalog } = await bacaIsianTemuan(formData, asal, supabase);
+  const gps = bacaGps(formData);
 
   const { data: sesi } = await supabase
     .from("inspeksi")
@@ -312,7 +346,7 @@ export async function tambahTemuan(formData: FormData) {
 
   const { data: baru, error } = await supabase
     .from("temuan")
-    .insert({ ...isian, inspeksi_id: inspeksiId, ditambahkan_setelah_tutup: setelahTutup })
+    .insert({ ...isian, ...gps, inspeksi_id: inspeksiId, ditambahkan_setelah_tutup: setelahTutup })
     .select("id")
     .single();
 
@@ -389,6 +423,7 @@ export async function ubahTemuan(formData: FormData) {
 
   const supabase = await createClient();
   const { isian, cocokKatalog } = await bacaIsianTemuan(formData, asal, supabase);
+  const gps = bacaGps(formData);
 
   const { data: lama } = await supabase
     .from("temuan")
@@ -425,17 +460,29 @@ export async function ubahTemuan(formData: FormData) {
     (k) => `${NAMA_KOLOM[k]}: ${tampil(k, lama[k])} menjadi ${tampil(k, isian[k])}`,
   );
 
-  if (perubahan.length === 0) {
+  // Tidak ada yang berubah dan GPS tidak diambil ulang: langsung kembali tanpa menyimpan
+  if (perubahan.length === 0 && gps === null) {
     redirect(kembali);
   }
 
-  const { error } = await supabase.from("temuan").update(isian).eq("id", temuanId);
+  const { error } = await supabase.from("temuan").update({ ...isian, ...gps }).eq("id", temuanId);
 
   if (error) {
     kembaliDenganGalat(asal, `Gagal menyimpan perubahan: ${error.message}`);
   }
 
-  await catatRiwayat(supabase, "temuan", temuanId, "Temuan diubah", perubahan.join("; "));
+  if (perubahan.length > 0) {
+    await catatRiwayat(supabase, "temuan", temuanId, "Temuan diubah", perubahan.join("; "));
+  }
+  if (gps) {
+    await catatRiwayat(
+      supabase,
+      "temuan",
+      temuanId,
+      "Posisi GPS diperbarui",
+      `STA hitungan ${formatSta(gps.gps_sta_m)}, akurasi ${gps.gps_akurasi_m} m`,
+    );
+  }
   if (cocokKatalog) {
     await catatRiwayat(
       supabase,
