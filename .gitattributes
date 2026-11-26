@@ -1,0 +1,8 @@
+# Semua file teks disimpan dan dibuka dengan akhir baris LF, di Windows maupun di sistem lain.
+# Ini menghilangkan peringatan "LF will be replaced by CRLF" saat git add.
+* text=auto eol=lf
+
+# File gambar dan ikon tidak boleh diubah sama sekali
+*.png binary
+*.ico binary
+*.jpg binary

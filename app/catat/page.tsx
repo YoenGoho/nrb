@@ -178,6 +178,9 @@ export default function Catat(props: PageProps<"/catat">) {
         <div className="flex items-center justify-between">
           <Link href="/" className="text-sm text-[#4A5568] underline">Beranda</Link>
           <span className="flex gap-4">
+            <Link href="/koridor" className="text-sm font-semibold text-[#14213D] underline">
+              Koridor
+            </Link>
             <Link href="/kalibrasi" className="text-sm font-semibold text-[#14213D] underline">
               Kalibrasi
             </Link>

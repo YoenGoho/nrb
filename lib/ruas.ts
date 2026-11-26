@@ -220,3 +220,46 @@ export function hitungPosisi(lat: number, lon: number, akurasiM: number | null, 
     arahSaran: gpsCukupAkurat && !diLuarKoridor ? terdekat.arah : null,
   };
 }
+
+// ---------------------------------------------------------
+// Kebalikan: dari STA ke koordinat (posisi perkiraan)
+// ---------------------------------------------------------
+// Dipakai untuk menggambar temuan yang tidak punya GPS di peta.
+// Hasilnya titik di garis as, bukan posisi asli, jadi selalu ditandai "perkiraan".
+
+function keLatLon([x, y]: XY): [number, number] {
+  return [((y / R) * 180) / Math.PI, ((x / (R * Math.cos(LINTANG_ACUAN))) * 180) / Math.PI];
+}
+
+// Titik di garis as pada ukur OpenStreetMap tertentu, dalam lintang dan bujur
+export function titikPadaUkur(arah: Arah, ukurM: number): [number, number] {
+  const { xy, kumulatif } = GARIS[arah];
+  const u = Math.max(0, Math.min(ukurM, kumulatif[kumulatif.length - 1]));
+  let i = 0;
+  while (i < kumulatif.length - 2 && kumulatif[i + 1] < u) i++;
+  const panjang = kumulatif[i + 1] - kumulatif[i];
+  const t = panjang === 0 ? 0 : (u - kumulatif[i]) / panjang;
+  const [ax, ay] = xy[i];
+  const [bx, by] = xy[i + 1];
+  return keLatLon([ax + t * (bx - ax), ay + t * (by - ay)]);
+}
+
+// Dari STA patok ke koordinat perkiraan.
+// STA = ukur + koreksi(ukur), jadi ukur dicari ulang beberapa kali sampai stabil.
+// Koreksi berubah pelan sepanjang ruas, sehingga lima putaran sudah lebih dari cukup.
+export function koordinatDariSta(arah: Arah, staM: number, acuan: Acuan[]): [number, number] {
+  let ukurM = staM;
+  for (let putaran = 0; putaran < 5; putaran++) {
+    ukurM = staM - koreksiPada(ukurM, acuan).koreksiM;
+  }
+  return titikPadaUkur(arah, ukurM);
+}
+
+// Potongan garis as untuk satu rentang STA, untuk digambar di peta
+export function garisAntaraSta(arah: Arah, awalM: number, akhirM: number, acuan: Acuan[]): [number, number][] {
+  const langkah = 50;
+  const titik: [number, number][] = [];
+  for (let s = awalM; s <= akhirM; s += langkah) titik.push(koordinatDariSta(arah, s, acuan));
+  titik.push(koordinatDariSta(arah, akhirM, acuan));
+  return titik;
+}

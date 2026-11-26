@@ -11,7 +11,8 @@ export function satu(nilai: string | string[] | undefined) {
 export function tujuanAman(nilai: string | null | undefined, cadangan: string) {
   if (!nilai) return cadangan;
   if (!nilai.startsWith("/") || nilai.startsWith("//")) return cadangan;
-  if (!(nilai.startsWith("/catat") || nilai.startsWith("/riwayat"))) return cadangan;
+  const halamanSah = ["/catat", "/riwayat", "/koridor"];
+  if (!halamanSah.some((awalan) => nilai.startsWith(awalan))) return cadangan;
   return nilai;
 }
 
