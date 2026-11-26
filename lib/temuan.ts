@@ -1,5 +1,6 @@
 import { formatSta } from "@/lib/sta";
 import { batasAkhirSesi } from "@/lib/inspeksi";
+import { tanggalWib } from "@/lib/waktu";
 
 export type JenisRingkas = { nama: string; kategori: string };
 
@@ -22,6 +23,7 @@ export type BarisTemuan = {
   catatan: string | null;
   status: string;
   dibuat_pada: string;
+  ditemukan_pada: string;
   ditambahkan_setelah_tutup: boolean;
   gps_lat: number | null;
   gps_lon: number | null;
@@ -32,15 +34,22 @@ export type BarisTemuan = {
   inspeksi: RentangSesi | RentangSesi[] | null;
 };
 
-export type RentangSesi = { sta_awal_m: number; sta_akhir_m: number };
+export type RentangSesi = {
+  sta_awal_m: number;
+  sta_akhir_m: number;
+  arah: string;
+  tanggal: string;
+  jenis_sesi: string;
+  rencana_selesai: string | null;
+};
 
 // Daftar kolom yang dipakai di semua halaman yang menampilkan temuan,
 // ditulis sekali di sini supaya tidak berbeda antar halaman.
 export const KOLOM_TEMUAN =
   "id, inspeksi_id, jenis_temuan_id, jenis_lain, kategori_lain, tingkat, tipe_lokasi, sta_awal_m, sta_akhir_m, arah, lajur, " +
-  "panjang_m, lebar_m, luas_m2, jumlah, catatan, status, dibuat_pada, ditambahkan_setelah_tutup, " +
+  "panjang_m, lebar_m, luas_m2, jumlah, catatan, status, dibuat_pada, ditemukan_pada, ditambahkan_setelah_tutup, " +
   "gps_lat, gps_lon, gps_akurasi_m, gps_sta_m, gps_diambil_pada, " +
-  "jenis_temuan(nama, kategori), inspeksi(sta_awal_m, sta_akhir_m)";
+  "jenis_temuan(nama, kategori), inspeksi(sta_awal_m, sta_akhir_m, arah, tanggal, jenis_sesi, rencana_selesai)";
 
 // Kategori tambahan untuk jenis yang diketik manual dan tidak cocok di kategori mana pun
 export const KATEGORI_LAIN = "Lain-lain";
@@ -95,4 +104,28 @@ export function diLuarRentang(t: Pick<BarisTemuan, "inspeksi" | "sta_awal_m" | "
   if (!sesi) return false;
   const ujungAkhir = t.sta_akhir_m ?? t.sta_awal_m;
   return t.sta_awal_m < sesi.sta_awal_m || ujungAkhir > batasAkhirSesi(sesi.sta_akhir_m);
+}
+
+// Periode sesi dalam tanggal WIB.
+// Harian  : hanya tanggal sesi itu.
+// Berkala : dari tanggal mulai sampai tanggal rencana selesai.
+export function periodeSesi(sesi: Pick<RentangSesi, "tanggal" | "jenis_sesi" | "rencana_selesai">) {
+  const akhir = sesi.jenis_sesi === "Berkala" ? sesi.rencana_selesai : sesi.tanggal;
+  return { mulai: sesi.tanggal, akhir };
+}
+
+// Temuan yang waktu ditemukannya di luar periode sesinya. Tetap disimpan, hanya diberi tanda.
+export function diLuarPeriode(t: Pick<BarisTemuan, "inspeksi" | "ditemukan_pada">) {
+  const sesi = Array.isArray(t.inspeksi) ? t.inspeksi[0] : t.inspeksi;
+  if (!sesi) return false;
+  const { mulai, akhir } = periodeSesi(sesi);
+  const tanggal = tanggalWib(t.ditemukan_pada);
+  return tanggal < mulai || (akhir !== null && tanggal > akhir);
+}
+
+// Temuan dianggap diinput belakangan kalau jarak waktu input dari waktu ditemukan lebih dari 30 menit
+export const BATAS_INPUT_BELAKANGAN_MS = 30 * 60 * 1000;
+
+export function diinputBelakangan(t: Pick<BarisTemuan, "dibuat_pada" | "ditemukan_pada">) {
+  return new Date(t.dibuat_pada).getTime() - new Date(t.ditemukan_pada).getTime() > BATAS_INPUT_BELAKANGAN_MS;
 }

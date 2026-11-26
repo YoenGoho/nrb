@@ -13,6 +13,7 @@ Dijalankan berurutan lewat SQL Editor di dashboard Supabase, satu berkas satu ka
 | 006_sesi_bersamaan.sql | Beberapa sesi boleh berjalan bersamaan, jenis sesi Harian dan Berkala | 25 November 2026 |
 | 007_titik_kalibrasi.sql | Tabel titik kalibrasi patok KM, riwayat ikut mencatatnya | 25 November 2026 |
 | 008_lokasi_gps_temuan.sql | Posisi GPS asli, akurasi, dan STA hitungan GPS untuk setiap temuan | 26 November 2026 |
+| 009_waktu_ditemukan.sql | Waktu ditemukan terpisah dari waktu input, riwayat temuan lama dilengkapi | 26 November 2026 |
 
 Aturan yang dipakai di seluruh naskah:
 

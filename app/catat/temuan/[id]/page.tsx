@@ -3,7 +3,8 @@ import Link from "next/link";
 import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { satu, tujuanAman } from "@/lib/param";
-import { KOLOM_TEMUAN, kodeTemuan, namaJenis, type BarisTemuan } from "@/lib/temuan";
+import { KOLOM_TEMUAN, kodeTemuan, namaJenis, periodeSesi, type BarisTemuan } from "@/lib/temuan";
+import { batasAkhirSesi } from "@/lib/inspeksi";
 import { ambilAcuan } from "@/lib/kalibrasi";
 import { DaftarRiwayatAksi, type BarisRiwayat } from "@/app/komponen/DaftarRiwayatAksi";
 import { IsianTemuan, type JenisKatalog } from "../../IsianTemuan";
@@ -54,6 +55,9 @@ async function FormUbah({ params, searchParams }: {
     ambilAcuan(supabase),
   ]);
 
+  // Sesi tempat temuan ini tercatat, untuk peringatan waktu dan posisi di luar sesi
+  const sesiTemuan = Array.isArray(t.inspeksi) ? t.inspeksi[0] : t.inspeksi;
+
   return (
     <div>
       <p className="mt-2 font-mono text-sm text-[#4A5568]">{kodeTemuan(t.id, t.dibuat_pada)}</p>
@@ -69,7 +73,18 @@ async function FormUbah({ params, searchParams }: {
           </p>
         ) : null}
 
-        <IsianTemuan katalog={(katalog ?? []) as JenisKatalog[]} awal={t} acuan={acuan} />
+        <IsianTemuan
+          katalog={(katalog ?? []) as JenisKatalog[]}
+          awal={t}
+          acuan={acuan}
+          waktuAwal={t.ditemukan_pada}
+          periode={sesiTemuan ? periodeSesi(sesiTemuan) : null}
+          rentangSesi={
+            sesiTemuan
+              ? { awalM: sesiTemuan.sta_awal_m, akhirM: batasAkhirSesi(sesiTemuan.sta_akhir_m), arah: sesiTemuan.arah }
+              : undefined
+          }
+        />
 
         <button type="submit" className={tombolUtama}>Simpan perubahan</button>
         <p className="-mt-3 text-xs text-[#4A5568]">

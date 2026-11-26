@@ -4,9 +4,10 @@
 // "use client" artinya kode ini dijalankan di browser HP, bukan di server,
 // karena hanya browser yang bisa membaca GPS. Hitungan STA juga terjadi di HP.
 
-import { useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
 import { AKURASI_SARAN_ARAH_M, hitungPosisi, type Acuan } from "@/lib/ruas";
-import { formatSta } from "@/lib/sta";
+import { formatKm, formatSta } from "@/lib/sta";
+import { PERISTIWA_WAKTU_GPS } from "@/lib/waktu";
 
 // Akurasi lebih buruk dari ini: STA sama sekali tidak diisi
 const AKURASI_TOLAK_M = 100;
@@ -14,6 +15,14 @@ const AKURASI_TOLAK_M = 100;
 const AKURASI_WASPADA_M = 20;
 // Paling lama menunggu GPS mengunci posisi, dalam milidetik
 const BATAS_TUNGGU_MS = 20000;
+// Posisi yang dibawa dari halaman pilih sesi hanya dipakai kalau umurnya belum lewat dari ini
+const UMUR_POSISI_DIBAWA_MS = 10 * 60 * 1000;
+
+// Posisi GPS yang sudah diambil di halaman pilih sesi, dibawa lewat alamat halaman
+export type PosisiAwal = { lat: number; lon: number; akurasiM: number; waktuMs: number };
+
+// Rentang sesi tujuan temuan. akhirM sudah sampai ujung KM akhir (contoh 20+999).
+export type RentangGps = { awalM: number; akhirM: number; arah: string };
 
 type Pesan = { jenis: "berhasil" | "waspada" | "gagal"; baris: string[] };
 
@@ -45,17 +54,21 @@ export function TombolAmbilPosisi({
   acuan,
   target,
   simpanKoordinat,
+  rentangSesi,
+  posisiAwal,
 }: {
   acuan: Acuan[];
   target: "awal" | "akhir"; // STA mana yang diisi
-  simpanKoordinat: boolean; // hanya STA awal yang menyimpan koordinat temuan
+  simpanKoordinat: boolean; // hanya STA awal yang menyimpan koordinat dan waktu temuan
+  rentangSesi?: RentangGps; // untuk peringatan kalau posisi di luar rentang sesi
+  posisiAwal?: PosisiAwal; // posisi yang dibawa dari halaman pilih sesi
 }) {
   const tombol = useRef<HTMLButtonElement>(null);
   const [sibuk, setSibuk] = useState(false);
   const [pesan, setPesan] = useState<Pesan | null>(null);
   const [gps, setGps] = useState<DataGps | null>(null);
 
-  function olah(lat: number, lon: number, akurasiM: number, waktuMs: number) {
+  function olah(lat: number, lon: number, akurasiM: number, waktuMs: number, dibawa = false) {
     const akurasi = Math.round(akurasiM);
 
     // Langkah 1: GPS terlalu kasar, jangan isi apa pun
@@ -91,7 +104,10 @@ export function TombolAmbilPosisi({
     isiKotak(form, `km_${target}`, String(Math.floor(hasil.staM / 1000)));
     isiKotak(form, `m_${target}`, String(hasil.staM % 1000));
 
-    const baris = [`STA ${formatSta(hasil.staM)} sudah diisi. Akurasi GPS ${akurasi} m.`];
+    const baris = [
+      ...(dibawa ? ["Posisi dibawa dari halaman pilih sesi."] : []),
+      `STA ${formatSta(hasil.staM)} sudah diisi. Akurasi GPS ${akurasi} m.`,
+    ];
     let jenis: Pesan["jenis"] = "berhasil";
 
     // Langkah 5: arah hanya dipilihkan kalau GPS cukup akurat, dan hanya untuk STA awal
@@ -117,13 +133,49 @@ export function TombolAmbilPosisi({
       baris.push(`Akurasi kurang baik. STA bisa meleset sekitar ${akurasi} m, cocokkan dengan patok terdekat.`);
     }
 
-    // Langkah 7: simpan koordinat asli untuk dikirim bersama form
+    // Langkah 7: bandingkan dengan rentang dan arah sesi tujuan
+    if (rentangSesi && (hasil.staM < rentangSesi.awalM || hasil.staM > rentangSesi.akhirM)) {
+      jenis = "waspada";
+      baris.push(
+        `STA ini di luar rentang sesi (${formatKm(rentangSesi.awalM)} sampai ${formatKm(rentangSesi.akhirM)}). ` +
+          "Periksa lagi sesinya. Kalau tetap disimpan, temuan diberi tanda di luar rentang.",
+      );
+    }
+    if (rentangSesi && target === "awal" && hasil.arahSaran && hasil.arahSaran !== rentangSesi.arah) {
+      jenis = "waspada";
+      baris.push(`Posisi lu di jalur ${hasil.arahSaran}, sedangkan sesi ini ${rentangSesi.arah}.`);
+    }
+
+    // Langkah 8: simpan koordinat asli, dan kabari isian waktu ditemukan supaya ikut waktu GPS
     if (simpanKoordinat) {
-      setGps({ lat, lon, akurasiM, staM: hasil.staM, waktu: new Date(waktuMs).toISOString() });
+      const waktu = new Date(waktuMs).toISOString();
+      setGps({ lat, lon, akurasiM, staM: hasil.staM, waktu });
+      form.dispatchEvent(new CustomEvent(PERISTIWA_WAKTU_GPS, { detail: waktu }));
     }
 
     setPesan({ jenis, baris });
   }
+
+  // Posisi yang dibawa dari halaman pilih sesi diolah sekali saat form pertama tampil.
+  // useEffectEvent membungkus fungsi olah supaya efek di bawah hanya bergantung pada posisiAwal,
+  // tidak terulang setiap kali komponen digambar ulang.
+  const olahPosisiDibawa = useEffectEvent((p: PosisiAwal) => {
+    if (Date.now() - p.waktuMs > UMUR_POSISI_DIBAWA_MS) {
+      setPesan({
+        jenis: "waspada",
+        baris: ["Posisi dari halaman pilih sesi sudah lebih dari 10 menit. Tekan tombol GPS untuk mengambil ulang."],
+      });
+      return;
+    }
+    olah(p.lat, p.lon, p.akurasiM, p.waktuMs, true);
+  });
+  useEffect(() => {
+    if (!posisiAwal) return;
+    // Ditunda sampai form selesai tampil, lalu diolah sekali.
+    // Kalau komponen keburu dilepas, penundaannya dibatalkan.
+    const penunda = setTimeout(() => olahPosisiDibawa(posisiAwal), 0);
+    return () => clearTimeout(penunda);
+  }, [posisiAwal]);
 
   function ambil() {
     setPesan(null);

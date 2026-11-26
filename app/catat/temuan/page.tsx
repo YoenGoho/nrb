@@ -3,16 +3,30 @@ import Link from "next/link";
 import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { formatKm } from "@/lib/sta";
-import { KOLOM_SESI, keteranganWaktuSesi, type BarisSesi } from "@/lib/inspeksi";
+import { batasAkhirSesi, KOLOM_SESI, keteranganWaktuSesi, type BarisSesi } from "@/lib/inspeksi";
 import { satu, tujuanAman } from "@/lib/param";
-import { kodeTemuan } from "@/lib/temuan";
+import { kodeTemuan, periodeSesi } from "@/lib/temuan";
 import { ambilAcuan } from "@/lib/kalibrasi";
 import { IsianTemuan, PILIHAN_LAINNYA, type JenisKatalog } from "../IsianTemuan";
+import { PilihSesiGps } from "../PilihSesiGps";
+import type { PosisiAwal } from "../TombolAmbilPosisi";
 import { tambahTemuan } from "../aksi";
 
 const tombolUtama = "rounded-xl bg-[#14213D] px-4 py-3 text-sm font-semibold text-white w-full";
 const tombolGaris =
   "rounded-xl border border-[#14213D] bg-white px-4 py-3 text-sm font-semibold text-[#14213D] w-full";
+
+// Membaca posisi GPS yang dibawa lewat alamat dari halaman pilih sesi.
+// Hasilnya undefined kalau tidak ada atau angkanya tidak masuk akal.
+function bacaPosisiDibawa(sp: Record<string, string | string[] | undefined>): PosisiAwal | undefined {
+  const lat = Number(satu(sp.gps_lat));
+  const lon = Number(satu(sp.gps_lon));
+  const akurasiM = Number(satu(sp.gps_akurasi));
+  const waktuMs = Number(satu(sp.gps_waktu));
+  if (![lat, lon, akurasiM, waktuMs].every(Number.isFinite)) return undefined;
+  if (lat < -90 || lat > 90 || lon < -180 || lon > 180 || akurasiM < 0) return undefined;
+  return { lat, lon, akurasiM, waktuMs };
+}
 
 async function FormTambah({ searchParams }: { searchParams: PageProps<"/catat/temuan">["searchParams"] }) {
   await connection();
@@ -43,27 +57,19 @@ async function FormTambah({ searchParams }: { searchParams: PageProps<"/catat/te
     if (berjalan.length === 1) {
       sesi = berjalan[0];
     } else if (berjalan.length > 1) {
+      // Lebih dari satu sesi: tampilkan daftar pilih, lengkap dengan tombol cari sesi dari GPS
+      const acuan = await ambilAcuan(supabase);
       return (
-        <div className="mt-4">
-          <p className="rounded-xl bg-[#EEF1F5] px-4 py-3 text-sm text-[#2D3B52]">
-            Ada {berjalan.length} sesi berjalan. Pilih sesi tujuan temuan ini.
-          </p>
-          <ul className="mt-3 flex flex-col gap-2">
-            {berjalan.map((b) => (
-              <li key={b.id}>
-                <Link
-                  href={`/catat/temuan?inspeksi=${b.id}&kembali=${encodeURIComponent(`/riwayat/${b.id}`)}`}
-                  className="block rounded-xl border border-[#DCE2EA] bg-white px-4 py-3"
-                >
-                  <span className="block text-base font-semibold">
-                    {formatKm(b.sta_awal_m)} sampai {formatKm(b.sta_akhir_m)}, {b.arah}
-                  </span>
-                  <span className="block text-sm text-[#4A5568]">{keteranganWaktuSesi(b)}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <PilihSesiGps
+          acuan={acuan}
+          sesi={berjalan.map((b) => ({
+            id: b.id,
+            awalM: b.sta_awal_m,
+            akhirM: batasAkhirSesi(b.sta_akhir_m),
+            arah: b.arah,
+            keterangan: keteranganWaktuSesi(b),
+          }))}
+        />
       );
     }
   }
@@ -95,6 +101,9 @@ async function FormTambah({ searchParams }: { searchParams: PageProps<"/catat/te
   const jenisDibawaTeks = satu(sp.jenis);
   const jenisManualDibawa = jenisDibawaTeks === PILIHAN_LAINNYA;
   const jenisDibawa = Number(jenisDibawaTeks);
+
+  // Posisi GPS yang dibawa dari halaman pilih sesi, kalau ada dan masuk akal
+  const posisiAwal = bacaPosisiDibawa(sp);
 
   return (
     <form action={tambahTemuan} className="mt-4 flex flex-col gap-5">
@@ -132,6 +141,10 @@ async function FormTambah({ searchParams }: { searchParams: PageProps<"/catat/te
       <IsianTemuan
         katalog={(katalog ?? []) as JenisKatalog[]}
         acuan={acuan}
+        waktuAwal={new Date().toISOString()}
+        periode={periodeSesi(sesi)}
+        rentangSesi={{ awalM: sesi.sta_awal_m, akhirM: batasAkhirSesi(sesi.sta_akhir_m), arah: sesi.arah }}
+        posisiAwal={posisiAwal}
         awal={{
           jenis_temuan_id: Number.isInteger(jenisDibawa) && jenisDibawa > 0 ? jenisDibawa : null,
           jenis_lain: jenisManualDibawa ? (satu(sp.jenis_lain) ?? null) : null,

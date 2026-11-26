@@ -15,11 +15,5 @@ export function tujuanAman(nilai: string | null | undefined, cadangan: string) {
   return nilai;
 }
 
-// Tanggal dan jam dalam Waktu Indonesia Barat
-export function formatWaktu(iso: string) {
-  return new Date(iso).toLocaleString("id-ID", {
-    timeZone: "Asia/Jakarta",
-    dateStyle: "medium",
-    timeStyle: "short",
-  });
-}
+// Format waktu sekarang diatur di lib/waktu.ts. Baris ini supaya halaman lama tetap jalan.
+export { formatWaktu } from "@/lib/waktu";

@@ -5,7 +5,8 @@
 import { KATEGORI_LAIN } from "@/lib/temuan";
 import { formatSta } from "@/lib/sta";
 import type { Acuan } from "@/lib/ruas";
-import { TombolAmbilPosisi } from "./TombolAmbilPosisi";
+import { TombolAmbilPosisi, type PosisiAwal, type RentangGps } from "./TombolAmbilPosisi";
+import { IsianWaktuDitemukan, type Periode } from "./IsianWaktuDitemukan";
 
 export type JenisKatalog = { id: number; kategori: string; nama: string; sering: boolean };
 
@@ -63,10 +64,14 @@ function pecahSta(meter: number | null | undefined) {
   return { km: Math.floor(meter / 1000), m: meter % 1000 };
 }
 
-export function IsianTemuan({ katalog, awal, acuan }: {
+export function IsianTemuan({ katalog, awal, acuan, waktuAwal, periode, rentangSesi, posisiAwal }: {
   katalog: JenisKatalog[];
   awal: NilaiAwal;
   acuan: Acuan[]; // titik kalibrasi untuk menghitung STA dari GPS
+  waktuAwal: string; // isi awal waktu ditemukan
+  periode: Periode | null; // periode sesi, untuk peringatan waktu
+  rentangSesi?: RentangGps; // rentang sesi, untuk peringatan posisi
+  posisiAwal?: PosisiAwal; // posisi GPS yang dibawa dari halaman pilih sesi
 }) {
   const sering = katalog.filter((j) => j.sering);
   const lainnya = katalog.filter((j) => !j.sering);
@@ -178,6 +183,8 @@ export function IsianTemuan({ katalog, awal, acuan }: {
         </div>
       </fieldset>
 
+      <IsianWaktuDitemukan awalIso={waktuAwal} periode={periode} />
+
       <div>
         <p className={label}>STA awal</p>
         <div className="flex items-center gap-2">
@@ -187,7 +194,13 @@ export function IsianTemuan({ katalog, awal, acuan }: {
           <input className={kotak} type="number" name="m_awal" min="0" max="999"
                  placeholder="meter" aria-label="Meter awal" defaultValue={staAwal.m ?? 0} />
         </div>
-        <TombolAmbilPosisi acuan={acuan} target="awal" simpanKoordinat />
+        <TombolAmbilPosisi
+          acuan={acuan}
+          target="awal"
+          simpanKoordinat
+          rentangSesi={rentangSesi}
+          posisiAwal={posisiAwal}
+        />
         {awal.gps_sta_m !== null && awal.gps_sta_m !== undefined ? (
           <p className="mt-1 text-xs text-[#4A5568]">
             Posisi GPS tersimpan: STA hitungan {formatSta(awal.gps_sta_m)}, akurasi{" "}
@@ -205,7 +218,7 @@ export function IsianTemuan({ katalog, awal, acuan }: {
           <input className={kotak} type="number" name="m_akhir" min="0" max="999"
                  placeholder="meter" aria-label="Meter akhir" defaultValue={staAkhir.m} />
         </div>
-        <TombolAmbilPosisi acuan={acuan} target="akhir" simpanKoordinat={false} />
+        <TombolAmbilPosisi acuan={acuan} target="akhir" simpanKoordinat={false} rentangSesi={rentangSesi} />
       </div>
 
       <fieldset>

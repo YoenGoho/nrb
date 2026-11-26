@@ -7,7 +7,8 @@ import { formatSta, keMeter } from "@/lib/sta";
 import { tujuanAman } from "@/lib/param";
 import { angka, kembaliDenganGalat, teks } from "@/lib/form";
 import { catatRiwayat } from "@/lib/riwayat";
-import { KATEGORI_LAIN, rapikanNama, seragamkanNama } from "@/lib/temuan";
+import { KATEGORI_LAIN, lokasiTemuan, rapikanNama, seragamkanNama } from "@/lib/temuan";
+import { formatWaktu, TOLERANSI_MASA_DEPAN_MS } from "@/lib/waktu";
 import { PILIHAN_LAINNYA } from "./IsianTemuan";
 
 // Server Action adalah fungsi yang ditulis di sini tetapi dijalankan di server
@@ -33,6 +34,7 @@ type IsianTemuan = {
   lebar_m: number | null;
   jumlah: number | null;
   catatan: string | null;
+  ditemukan_pada: string;
 };
 
 type KlienSupabase = Awaited<ReturnType<typeof createClient>>;
@@ -137,6 +139,17 @@ async function bacaIsianTemuan(
     }
   }
 
+  // Waktu ditemukan: dikirim isian tersembunyi dalam format ISO, lengkap sampai detik.
+  // Kalau kosong (misalnya halaman lama), dipakai waktu sekarang.
+  const teksDitemukan = teks(fd, "ditemukan_pada");
+  const ditemukan = teksDitemukan ? new Date(teksDitemukan) : new Date();
+  if (Number.isNaN(ditemukan.getTime())) {
+    kembaliDenganGalat(asal, "Waktu ditemukan tidak terbaca.");
+  }
+  if (ditemukan.getTime() > Date.now() + TOLERANSI_MASA_DEPAN_MS) {
+    kembaliDenganGalat(asal, "Waktu ditemukan tidak boleh di masa depan. Periksa tanggal dan jamnya.");
+  }
+
   const jumlah = angka(fd, "jumlah");
   if (jumlah !== null && (jumlah < 1 || !Number.isInteger(jumlah))) {
     kembaliDenganGalat(asal, "Jumlah harus bilangan bulat, paling kecil 1.");
@@ -156,6 +169,7 @@ async function bacaIsianTemuan(
     lebar_m: angka(fd, "lebar_m"),
     jumlah,
     catatan: teks(fd, "catatan"),
+    ditemukan_pada: ditemukan.toISOString(),
   };
 
   return { isian, cocokKatalog };
@@ -354,6 +368,21 @@ export async function tambahTemuan(formData: FormData) {
     kembaliDenganGalat(asal, `Gagal menyimpan temuan: ${error.message}`);
   }
 
+  // Setiap temuan baru tercatat di buku riwayat, supaya kalender cukup membaca satu tabel
+  let namaJenisBaru = isian.jenis_lain;
+  if (namaJenisBaru === null && isian.jenis_temuan_id !== null) {
+    const { data: j } = await supabase.from("jenis_temuan").select("nama").eq("id", isian.jenis_temuan_id).maybeSingle();
+    namaJenisBaru = j?.nama ?? null;
+  }
+  await catatRiwayat(
+    supabase,
+    "temuan",
+    baru.id,
+    "Temuan ditambahkan",
+    `${namaJenisBaru ?? "Jenis tidak dikenali"}, ${isian.tingkat}, ${lokasiTemuan(isian)} ${isian.arah}, ` +
+      `ditemukan ${formatWaktu(isian.ditemukan_pada)}${gps ? ", posisi dari GPS" : ""}`,
+  );
+
   if (cocokKatalog) {
     await catatRiwayat(
       supabase,
@@ -410,6 +439,7 @@ const NAMA_KOLOM: Record<keyof IsianTemuan, string> = {
   lebar_m: "lebar",
   jumlah: "jumlah",
   catatan: "catatan",
+  ditemukan_pada: "waktu ditemukan",
 };
 
 export async function ubahTemuan(formData: FormData) {
@@ -427,12 +457,18 @@ export async function ubahTemuan(formData: FormData) {
 
   const { data: lama } = await supabase
     .from("temuan")
-    .select("jenis_temuan_id, jenis_lain, kategori_lain, tingkat, tipe_lokasi, sta_awal_m, sta_akhir_m, arah, lajur, panjang_m, lebar_m, jumlah, catatan")
+    .select("jenis_temuan_id, jenis_lain, kategori_lain, tingkat, tipe_lokasi, sta_awal_m, sta_akhir_m, arah, lajur, panjang_m, lebar_m, jumlah, catatan, ditemukan_pada")
     .eq("id", temuanId)
     .maybeSingle();
 
   if (!lama) {
     kembaliDenganGalat(kembali, "Temuan tidak ditemukan.");
+  }
+
+  // Waktu dari database dan dari form ditulis dengan gaya berbeda ("+00:00" dan "Z"),
+  // jadi dibandingkan sebagai angka milidetik. Kalau sama, pakai nilai lama apa adanya.
+  if (new Date(lama.ditemukan_pada).getTime() === new Date(isian.ditemukan_pada).getTime()) {
+    isian.ditemukan_pada = lama.ditemukan_pada;
   }
 
   // Bandingkan nilai lama dan baru, supaya yang tercatat hanya yang benar-benar berubah
@@ -453,8 +489,11 @@ export async function ubahTemuan(formData: FormData) {
       );
     for (const j of jenis ?? []) namaJenisMenurutId.set(j.id, j.nama);
   }
-  const tampil = (k: keyof IsianTemuan, v: unknown) =>
-    k === "jenis_temuan_id" ? (namaJenisMenurutId.get(Number(v)) ?? kosong(v)) : kosong(v);
+  const tampil = (k: keyof IsianTemuan, v: unknown) => {
+    if (k === "jenis_temuan_id") return namaJenisMenurutId.get(Number(v)) ?? kosong(v);
+    if (k === "ditemukan_pada" && typeof v === "string") return formatWaktu(v);
+    return kosong(v);
+  };
 
   const perubahan = kolomBerubah.map(
     (k) => `${NAMA_KOLOM[k]}: ${tampil(k, lama[k])} menjadi ${tampil(k, isian[k])}`,

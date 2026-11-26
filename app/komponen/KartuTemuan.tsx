@@ -1,5 +1,15 @@
 import Link from "next/link";
-import { belumDiukur, diLuarRentang, kodeTemuan, lokasiTemuan, namaJenis, type BarisTemuan } from "@/lib/temuan";
+import {
+  belumDiukur,
+  diinputBelakangan,
+  diLuarPeriode,
+  diLuarRentang,
+  kodeTemuan,
+  lokasiTemuan,
+  namaJenis,
+  type BarisTemuan,
+} from "@/lib/temuan";
+import { formatWaktu } from "@/lib/waktu";
 
 // Satu kartu temuan, dipakai di halaman catat, riwayat, dan daftar belum diukur
 export function KartuTemuan({ t, kembali }: { t: BarisTemuan; kembali: string }) {
@@ -18,6 +28,10 @@ export function KartuTemuan({ t, kembali }: { t: BarisTemuan; kembali: string })
             {t.jumlah !== null ? `Jumlah ${t.jumlah}` : "Jumlah belum diisi"}
             {t.luas_m2 !== null ? `, luas ${t.luas_m2} meter persegi` : ""}
           </p>
+          <p className="text-sm text-[#4A5568]">Ditemukan {formatWaktu(t.ditemukan_pada)}</p>
+          {diinputBelakangan(t) ? (
+            <p className="text-xs text-[#4A5568]">Diinput {formatWaktu(t.dibuat_pada)}</p>
+          ) : null}
           {t.catatan ? <p className="mt-1 text-sm">{t.catatan}</p> : null}
 
           <div className="mt-2 flex flex-wrap gap-2">
@@ -29,6 +43,11 @@ export function KartuTemuan({ t, kembali }: { t: BarisTemuan; kembali: string })
             {diLuarRentang(t) ? (
               <span className="rounded-full bg-[#FFEDD5] px-2 py-0.5 text-xs font-semibold text-[#7C2D12]">
                 Di luar rentang sesi
+              </span>
+            ) : null}
+            {diLuarPeriode(t) ? (
+              <span className="rounded-full bg-[#FFEDD5] px-2 py-0.5 text-xs font-semibold text-[#7C2D12]">
+                Di luar periode sesi
               </span>
             ) : null}
             {t.jenis_lain ? (
